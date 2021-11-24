@@ -15,5 +15,15 @@ namespace EDD
         ArrayList apellidoMaterno = new ArrayList();
         ArrayList fechaNacimiento = new ArrayList();
         ArrayList semestre = new ArrayList();
+
+        //Constructor para crear un Alumno
+        public Alumno(int idalumno, string nombree, string apellidopaterno, string apellidomaterno, string fechanacimiento )
+        {
+            IDAlumno.Add(idalumno);
+            nombre.Add(nombree);
+            apellidoPaterno.Add(apellidopaterno);
+            apellidoMaterno.Add(apellidomaterno);
+            fechaNacimiento.Add(fechanacimiento);
+        }
     }
 }

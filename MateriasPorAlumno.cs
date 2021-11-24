@@ -13,5 +13,15 @@ namespace EDD
         ArrayList IDMateria = new ArrayList();
         ArrayList calificacion = new ArrayList();
 
+        //Constructor para crear una MateriaPorAlumno
+        public MateriasPorAlumno(int idasoc, int idalumno, int idmateria, double calificacionn)
+        {
+            IDAsoc.Add(idasoc);
+            IDAlumno.Add(idalumno);
+            IDMateria.Add(idmateria);
+            calificacion.Add(calificacionn);
+        }
+
+
     }
 }

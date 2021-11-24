@@ -10,6 +10,14 @@ namespace EDD
         //Declaración de los ArrayList
         ArrayList IDMateria = new ArrayList();
         ArrayList nombreMateria = new ArrayList();
+
+        //Constructor para crear un Alumno
+        public Materias(int idmateria, string nombremat)
+        {
+            IDMateria.Add(idmateria);
+            nombreMateria.Add(nombremat);
+        }
+
  
     }
 }
