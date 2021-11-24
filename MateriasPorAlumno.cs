@@ -13,8 +13,6 @@ namespace EDD
         ArrayList IDMateria = new ArrayList();
         ArrayList calificacion = new ArrayList();
 
-<<<<<<< HEAD
-=======
         //Constructor para crear una MateriaPorAlumno
         public MateriasPorAlumno(int idasoc, int idalumno, int idmateria, double calificacionn)
         {
@@ -25,6 +23,5 @@ namespace EDD
         }
 
 
->>>>>>> Etapa1Alymi
     }
 }

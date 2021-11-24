@@ -11,8 +11,6 @@ namespace EDD
         ArrayList IDMateria = new ArrayList();
         ArrayList nombreMateria = new ArrayList();
 
-<<<<<<< HEAD
-=======
         //Constructor para crear un Alumno
         public Materias(int idmateria, string nombremat)
         {
@@ -21,6 +19,5 @@ namespace EDD
         }
 
  
->>>>>>> Etapa1Alymi
     }
 }
