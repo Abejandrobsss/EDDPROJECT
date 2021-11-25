@@ -8,22 +8,32 @@ namespace EDD
     class Alumno
     {
         
-        //Declaración de los ArrayList
-        ArrayList IDAlumno = new ArrayList();
-        ArrayList nombre = new ArrayList();
-        ArrayList apellidoPaterno = new ArrayList();
-        ArrayList apellidoMaterno = new ArrayList();
-        ArrayList fechaNacimiento = new ArrayList();
-        ArrayList semestre = new ArrayList();
+        //Declaración de los Atributos
+        private string iDAlumno;
+        private string nombre;
+        private string apellidoPaterno;
+        private string apellidoMaterno;
+        private string fechaNacimiento;
+        private string semestre;
 
-        //Constructor para crear un Alumno
-        public Alumno(int idalumno, string nombree, string apellidopaterno, string apellidomaterno, string fechanacimiento )
+        //Constructor para crear un Alumno.
+        public Alumno(string iDAlumno, string nombre, string apellidoPaterno, string apellidoMaterno, string fechaNacimiento)
         {
-            IDAlumno.Add(idalumno);
-            nombre.Add(nombree);
-            apellidoPaterno.Add(apellidopaterno);
-            apellidoMaterno.Add(apellidomaterno);
-            fechaNacimiento.Add(fechanacimiento);
+            this.iDAlumno = iDAlumno;
+            this.nombre = nombre;
+            this.apellidoPaterno = apellidoPaterno;
+            this.apellidoMaterno = apellidoMaterno;
+            this.fechaNacimiento = fechaNacimiento;
         }
+
+        public string DatosAlumno()
+        {
+            return string.Format("\t{0}\t{1}\t{2}\t{3}\t{4}",iDAlumno,nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento);
+        }
+
+        public string IDAlumno { get=> iDAlumno;}
+        public string NombreAlumno { get=> nombre;}
+        
+        
     }
 }

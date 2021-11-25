@@ -8,15 +8,22 @@ namespace EDD
     class Materias
     {
         //Declaración de los ArrayList
-        ArrayList IDMateria = new ArrayList();
-        ArrayList nombreMateria = new ArrayList();
+        private string iDMateria;
+        private string nombreMateria;
 
         //Constructor para crear un Alumno
-        public Materias(int idmateria, string nombremat)
+        public Materias(string iDMateria, string nombreMateria)
         {
-            IDMateria.Add(idmateria);
-            nombreMateria.Add(nombremat);
+            this.iDMateria = iDMateria;
+            this.nombreMateria = nombreMateria;
         }
+        public string DatosMaterias()
+        {
+            return string.Format("\t{0}\t{1}",iDMateria,NombreMateria);
+        }
+
+        public string IDMateria { get=> iDMateria;}
+        public string NombreMateria { get=> nombreMateria;}
 
  
     }

@@ -7,21 +7,28 @@ namespace EDD
 {
     class MateriasPorAlumno
     {
-        //Declaración de los ArrayList
-        ArrayList IDAsoc = new ArrayList();
-        ArrayList IDAlumno = new ArrayList();
-        ArrayList IDMateria = new ArrayList();
-        ArrayList calificacion = new ArrayList();
+        //Declaración de los atributos
+        private string iDAsoc;
+        private string iDAlumno;
+        private string iDMateria;
+        private double calificacion;
 
         //Constructor para crear una MateriaPorAlumno
-        public MateriasPorAlumno(int idasoc, int idalumno, int idmateria, double calificacionn)
+        public MateriasPorAlumno(string iDAsoc, string iDAlumno, string iDMateria, double calificacion)
         {
-            IDAsoc.Add(idasoc);
-            IDAlumno.Add(idalumno);
-            IDMateria.Add(idmateria);
-            calificacion.Add(calificacionn);
+            this.iDAsoc = iDAsoc;
+            this.iDAlumno = iDAlumno;
+            this.iDMateria = iDMateria;
+            this.calificacion = calificacion;
+        }
+
+        public string DatosMateriasPorAlumno()
+        {
+            return string.Format("\t{0}\t{1}\t{2}\t{3}",iDAsoc,iDAlumno,iDMateria,calificacion);
         }
 
 
+        public string IDAsoc { get=>iDAsoc;}      
+        public string IDAlumno { get=>iDAlumno;}    
     }
 }
