@@ -44,6 +44,7 @@ namespace EDD
                     break;
                 
                 case 6:
+                    Console.Clear();
                     Environment.Exit(0);
                     break;
             }
@@ -256,7 +257,7 @@ namespace EDD
 
                     switch (opcion)
                     {
-                        case 1: // POR ID
+                        case 1: 
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA > POR ID ════════════════════════════════════════════════════════════════\n");
                             Console.Write("\tID: ");
                             iDMateria = Console.ReadLine();
@@ -272,7 +273,7 @@ namespace EDD
                             menuBusqueda();
                             break; 
 
-                        case 2: // POR NOMBRE
+                        case 2: 
                         Console.WriteLine("\n\t═════ BUSCAR > MATERIA > POR NOMBRE ════════════════════════════════════════════════════════════════\n");
                             Console.Write("\tNombre: ");
                             materia = Console.ReadLine();
@@ -285,7 +286,7 @@ namespace EDD
                             menuBusqueda();
                             break;
                         
-                        case 3: // TODOS
+                        case 3: 
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
                             Listas.ImprimirMaterias();
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");
@@ -294,7 +295,7 @@ namespace EDD
                             menuBusqueda();
                             break;
 
-                        case 4: // VOLVER
+                        case 4: 
                             Console.Clear();
                             menuBusqueda();
                             break;
@@ -303,7 +304,7 @@ namespace EDD
 
                 case 3: // MATERIA POR ALUMNO
                     Console.WriteLine("\n\t═════ BUSCAR > MATERIA POR ALUMNO ════════════════════════════════════════════════════════════════");
-                    Console.Write("\n\t» 1 Por ID\n\t» 2 Por ID del Alumno\n\t» 3 Todos\n\t» 4 Volver\n\n\t  > ");
+                    Console.Write("\n\t» 1 Por ID\n\t» 2 Por ID del Alumno\n\t» 3 Todos\n\t» 4 Promedio por ID\n\t» 5 Volver\n\n\t  > ");
                     opcion = Convert.ToInt16(Console.ReadLine());
                     Console.Clear();
                     
@@ -327,8 +328,8 @@ namespace EDD
                             break; 
 
                         case 2:
-                        Console.WriteLine("\n\t═════ BUSCAR > MATERIA POR ALUMNO > POR ID DEL ALUMNO ════════════════════════════════════════════════════════════════\n");
-                            Console.Write("\tNombre: ");
+                            Console.WriteLine("\n\t═════ BUSCAR > MATERIA POR ALUMNO > POR ID DEL ALUMNO ════════════════════════════════════════════════════════════════\n");
+                            Console.Write("\tID del alumno: ");
                             iDAlumno = Console.ReadLine();
 
                             Listas.ImprimirMateriasPorAlumnoPorIDAlumno(iDAlumno);
@@ -349,6 +350,19 @@ namespace EDD
                             break;
 
                         case 4:
+                            Console.WriteLine("\n\t═════ BUSCAR > MATERIA POR ALUMNO > PROMEDIO POR ID DEL ALUMNO ════════════════════════════════════════════════\n");
+                            Console.Write("\tID del alumno: ");
+                            iDAlumno = Console.ReadLine();
+
+                            System.Console.WriteLine("\tPromedio: {0}",Listas.Promedio(iDAlumno));
+
+                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.ReadKey();
+                            Console.Clear();
+                            menuBusqueda();
+                            break;
+
+                        case 5:
                             Console.Clear();
                             menuBusqueda();
                             break;

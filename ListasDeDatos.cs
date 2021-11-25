@@ -60,6 +60,8 @@ namespace EDD
             }
             return existe;
         }
+
+        
         //Funcion para Buscar e imprimir los datos de un alumno mediante su ID.
         public string DatosDeAlumnoPorID(string iD)
         {
@@ -174,5 +176,25 @@ namespace EDD
                 }
             }
         }
+        public double Promedio(string iD)
+        {
+            ArrayList materiasPorAlumnoTemp = this.materiasPorAlumno;
+            int count=materiasPorAlumnoTemp.Count;
+            double promedio=0;
+            int contador=0;
+            
+            for (int i = 0; i < count; i++)
+            {
+                if(((MateriasPorAlumno)materiasPorAlumnoTemp[i]).IDAlumno == iD)
+                {
+                    promedio += ((MateriasPorAlumno)materiasPorAlumno[i]).Calificacion;
+                    contador++;
+                }
+            }
+            promedio /= contador;
+            return promedio;
+        }
     }
+
+    
 }

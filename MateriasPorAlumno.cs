@@ -27,8 +27,9 @@ namespace EDD
             return string.Format("\t{0}\t{1}\t{2}\t{3}",iDAsoc,iDAlumno,iDMateria,calificacion);
         }
 
-
+        //propiedades
         public string IDAsoc { get=>iDAsoc;}      
         public string IDAlumno { get=>iDAlumno;}    
+        public double Calificacion { get=>calificacion;} 
     }
 }
