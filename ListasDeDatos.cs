@@ -65,6 +65,7 @@ namespace EDD
         //Funcion para Buscar e imprimir los datos de un alumno mediante su ID.
         public string DatosDeAlumnoPorID(string iD)
         {
+            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
             int count=alumnos.Count;
             string datos = "";
             for (int i = 0; i < count; i++)
@@ -107,6 +108,7 @@ namespace EDD
         //funcion para imprimir todos los alumnos.
         public void ImprimirAlumnos()
         {
+            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
             int count=alumnos.Count;
             for (int i = 0; i < count; i++)
             {
@@ -134,9 +136,9 @@ namespace EDD
         //Funcion que imprime todos los alumnos que tienen el mismo nombre.
         public void ImprimirAlumnosPorNombre(string nombre)
         {
+            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
             ArrayList alumnosTemp = this.alumnos;
             int count=alumnosTemp.Count;
-            
             for (int i = 0; i < count; i++)
             {
                 if(((Alumno)alumnosTemp[i]).NombreAlumno == nombre)

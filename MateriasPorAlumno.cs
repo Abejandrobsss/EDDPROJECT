@@ -24,7 +24,7 @@ namespace EDD
 
         public string DatosMateriasPorAlumno()
         {
-            return string.Format("\t{0}\t{1}\t{2}\t{3}",iDAsoc,iDAlumno,iDMateria,calificacion);
+            return string.Format("\t{0,-20}{1,-20}{2,-20}{3,-20}",iDAsoc,iDAlumno,iDMateria,calificacion);
         }
 
         //propiedades

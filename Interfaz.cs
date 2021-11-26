@@ -58,6 +58,7 @@ namespace EDD
             string apellidoPaternoAlumno;
             string apellidoMaternoAlumno;
             string fechaNacimientoAlumno;
+            int semestre;
 
             //Parámetros para la clase Materias
             string idMaterias;
@@ -86,21 +87,23 @@ namespace EDD
                     apellidoMaternoAlumno = Console.ReadLine();
                     Console.Write("\tFecha de nacimiento: ");
                     fechaNacimientoAlumno = Console.ReadLine();
+                    Console.Write("\tSemestre: ");
+                    semestre = Convert.ToInt32(Console.ReadLine());
 
                     //Condicional que solo crea otro alumno si el iD proporcionado no existe ya en el sistema.
                     if(Listas.BuscarIDAlumno(idAlumno) != true)
                     {
-                        Listas.AgregarAlumnos(new Alumno(idAlumno, nombreAlumno, apellidoPaternoAlumno, apellidoMaternoAlumno, fechaNacimientoAlumno));
+                        Listas.AgregarAlumnos(new Alumno(idAlumno, nombreAlumno, apellidoPaternoAlumno, apellidoMaternoAlumno, fechaNacimientoAlumno, semestre));
                         Console.ForegroundColor = ConsoleColor.Green;
-                        System.Console.WriteLine("\tAlumno creado satisfactoriamente.");
+                        System.Console.WriteLine("\n\tAlumno creado satisfactoriamente.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        System.Console.WriteLine("\tID de alumno ya existente.");
+                        System.Console.WriteLine("\n\tID de alumno ya existente.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                    Console.Write("\tPrecione cualquier tecla para continuar.");
                     Console.ReadKey();
                     Console.Clear();
                     menuInsertar();
@@ -117,16 +120,16 @@ namespace EDD
                     {
                         Listas.AgregarMaterias(new Materias(idMaterias, nombreMaterias));
                         Console.ForegroundColor = ConsoleColor.Green;
-                        System.Console.WriteLine("\tMateria creada satisfactoriamente.");
+                        System.Console.WriteLine("\n\tMateria creada satisfactoriamente.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        System.Console.WriteLine("\tID de Materia ya existente.");
+                        System.Console.WriteLine("\n\tID de Materia ya existente.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     
-                    Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                    Console.Write("\tPrecione cualquier tecla para continuar.");
                     Console.ReadKey();
                     Console.Clear();
                     menuInsertar();
@@ -147,17 +150,17 @@ namespace EDD
                     {
                         Listas.AgregarMateriasPorAlumno(new MateriasPorAlumno(idAsocMatPorAlumno, idAlumnoMatPorAlumno, idMateriaMatPorAlumno, calificacionMatPorAlumno));
                         Console.ForegroundColor = ConsoleColor.Green;
-                        System.Console.WriteLine("Materia por alumno agregada.");
+                        System.Console.WriteLine("\n\tMateria por alumno agregada.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        System.Console.WriteLine("\tID de alumno o de materia inexistentes.");
+                        System.Console.WriteLine("\n\tID de alumno o de materia inexistentes.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
 
-                    Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                    Console.Write("\tPrecione cualquier tecla para continuar.");
                     Console.ReadKey();
                     Console.Clear();
                     menuInsertar();
@@ -187,7 +190,7 @@ namespace EDD
 
             switch (opcion)
             {
-                case 1: // ALUMNO
+                case 1: // Alumno
 
                     //Menu interactivo
                     opcion = MenuInteractivo.MenuInteractivoFlechas("BUSCAR > ALUMNO", "» Por ID","» Por Nombre","» Todos los alumnos","» Volver");
@@ -202,7 +205,7 @@ namespace EDD
 
                             if(Listas.BuscarIDAlumno(iDAlumno) == true)
                             {
-                                System.Console.WriteLine("\n{0}",Listas.DatosDeAlumnoPorID(iDAlumno));
+                                System.Console.WriteLine("{0}",Listas.DatosDeAlumnoPorID(iDAlumno));
                             }
 
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");

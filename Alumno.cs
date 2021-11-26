@@ -14,21 +14,22 @@ namespace EDD
         private string apellidoPaterno;
         private string apellidoMaterno;
         private string fechaNacimiento;
-        private string semestre;
+        private int semestre;
 
         //Constructor para crear un Alumno.
-        public Alumno(string iDAlumno, string nombre, string apellidoPaterno, string apellidoMaterno, string fechaNacimiento)
+        public Alumno(string iDAlumno, string nombre, string apellidoPaterno, string apellidoMaterno, string fechaNacimiento, int semestre)
         {
             this.iDAlumno = iDAlumno;
             this.nombre = nombre;
             this.apellidoPaterno = apellidoPaterno;
             this.apellidoMaterno = apellidoMaterno;
             this.fechaNacimiento = fechaNacimiento;
+            this.semestre = semestre;
         }
 
         public string DatosAlumno()
         {
-            return string.Format("\t{0}\t{1}\t{2}\t{3}\t{4}",iDAlumno,nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento);
+            return string.Format("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}",iDAlumno,nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento,semestre);
         }
 
         public string IDAlumno { get=> iDAlumno;}
