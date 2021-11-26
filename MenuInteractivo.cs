@@ -4,7 +4,7 @@ namespace EDD
 {
     class MenuInteractivo
     {
-        //sobrecarga del metodo para ahorrar codigo y hacerlo dinamico no importa cuantas opciones debamos implementar de 1 - 6.
+        // Sobrecarga de metodos para ahorrar codigo y hacerlo dinamico no importa cuantas opciones debamos implementar de 1 - 6.
         // Nombre del Menu (etiqueta), Opciones (op1-6).
         public static int MenuInteractivoFlechas(string etiqueta, string op1)
         {
@@ -104,6 +104,7 @@ namespace EDD
                     y++;
                     if (y > options) y = 0;
                 }
+
 
                 Console.Clear();
             } while (cKey != ConsoleKey.Enter);

@@ -60,12 +60,9 @@ namespace EDD
             }
             return existe;
         }
-
-        
         //Funcion para Buscar e imprimir los datos de un alumno mediante su ID.
         public string DatosDeAlumnoPorID(string iD)
         {
-            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
             int count=alumnos.Count;
             string datos = "";
             for (int i = 0; i < count; i++)
@@ -108,8 +105,7 @@ namespace EDD
         //funcion para imprimir todos los alumnos.
         public void ImprimirAlumnos()
         {
-            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
-            int count=alumnos.Count;
+            int count = alumnos.Count;
             for (int i = 0; i < count; i++)
             {
                 System.Console.WriteLine(((Alumno)alumnos[i]).DatosAlumno());
@@ -118,7 +114,7 @@ namespace EDD
         //funcion para imprimir todas las materias.
         public void ImprimirMaterias()
         {
-            int count=materias.Count;
+            int count = materias.Count;
             for (int i = 0; i < count; i++)
             {
                 System.Console.WriteLine(((Materias)materias[i]).DatosMaterias());
@@ -127,7 +123,7 @@ namespace EDD
         //funcion para imprimir todas las materias por alumno.
         public void ImprimirMateriasPorAlumno()
         {
-            int count=materiasPorAlumno.Count;
+            int count = materiasPorAlumno.Count;
             for (int i = 0; i < count; i++)
             {
                 System.Console.WriteLine(((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());
@@ -136,58 +132,50 @@ namespace EDD
         //Funcion que imprime todos los alumnos que tienen el mismo nombre.
         public void ImprimirAlumnosPorNombre(string nombre)
         {
-            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
-            ArrayList alumnosTemp = this.alumnos;
-            int count=alumnosTemp.Count;
+            int count = alumnos.Count;
             for (int i = 0; i < count; i++)
             {
-                if(((Alumno)alumnosTemp[i]).NombreAlumno == nombre)
+                if(((Alumno)alumnos[i]).NombreAlumno == nombre)
                 {
-                    System.Console.WriteLine(((Alumno)alumnosTemp[i]).DatosAlumno());
-                    alumnosTemp[i]="";
+                    System.Console.WriteLine(((Alumno)alumnos[i]).DatosAlumno());
                 }
             }
         }
         //Funcion que imprime todas las materias que tienen el mismo nombre.
         public void ImprimirMateriasPorNombre(string nombre)
         {
-            ArrayList materiasTemp = this.materias;
-            int count=materiasTemp.Count;
-            
+            int count = materias.Count;
             for (int i = 0; i < count; i++)
             {
-                if(((Materias)materiasTemp[i]).NombreMateria == nombre)
+                if(((Materias)materias[i]).NombreMateria == nombre)
                 {
-                    System.Console.WriteLine(((Materias)materiasTemp[i]).DatosMaterias());
-                    materiasTemp[i]="";
+                    System.Console.WriteLine(((Materias)materias[i]).DatosMaterias());
                 }
             }
         }
         //Funcion que imprime todas las materias por alumno de un Alumno mediante su ID.
         public void ImprimirMateriasPorAlumnoPorIDAlumno(string iD)
         {
-            ArrayList materiasPorAlumnoTemp = this.materiasPorAlumno;
-            int count=materiasPorAlumnoTemp.Count;
+            int count = materiasPorAlumno.Count;
             
             for (int i = 0; i < count; i++)
             {
-                if(((MateriasPorAlumno)materiasPorAlumnoTemp[i]).IDAlumno == iD)
+                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
                 {
-                    System.Console.WriteLine(((MateriasPorAlumno)materiasPorAlumnoTemp[i]).DatosMateriasPorAlumno());
-                    materiasPorAlumnoTemp[i]="";
+                    System.Console.WriteLine(((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());
                 }
             }
         }
+        //Funcion para calcular y devolver el promedio de un alumno, buscandolo mediante su IDAlumno
         public double Promedio(string iD)
         {
-            ArrayList materiasPorAlumnoTemp = this.materiasPorAlumno;
-            int count=materiasPorAlumnoTemp.Count;
+            int count = materiasPorAlumno.Count;
             double promedio=0;
             int contador=0;
             
             for (int i = 0; i < count; i++)
             {
-                if(((MateriasPorAlumno)materiasPorAlumnoTemp[i]).IDAlumno == iD)
+                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
                 {
                     promedio += ((MateriasPorAlumno)materiasPorAlumno[i]).Calificacion;
                     contador++;
@@ -197,6 +185,4 @@ namespace EDD
             return promedio;
         }
     }
-
-    
 }

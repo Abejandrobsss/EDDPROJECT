@@ -76,33 +76,43 @@ namespace EDD
             switch (opcion)
             {
                 case 1:
-                    Console.WriteLine("\n\t═════ INGRESAR > ALUMNOS ════════════════════════════════════════════════════════════════");
-                    Console.Write("\n\tID: ");
-                    idAlumno = Console.ReadLine();
-                    Console.Write("\tNombre: ");
-                    nombreAlumno = Console.ReadLine();
-                    Console.Write("\tApellido paterno: ");
-                    apellidoPaternoAlumno = Console.ReadLine();
-                    Console.Write("\tApellido materno: ");
-                    apellidoMaternoAlumno = Console.ReadLine();
-                    Console.Write("\tFecha de nacimiento: ");
-                    fechaNacimientoAlumno = Console.ReadLine();
-                    Console.Write("\tSemestre: ");
-                    semestre = Convert.ToInt32(Console.ReadLine());
-
-                    //Condicional que solo crea otro alumno si el iD proporcionado no existe ya en el sistema.
-                    if(Listas.BuscarIDAlumno(idAlumno) != true)
+                    try
                     {
-                        Listas.AgregarAlumnos(new Alumno(idAlumno, nombreAlumno, apellidoPaternoAlumno, apellidoMaternoAlumno, fechaNacimientoAlumno, semestre));
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        System.Console.WriteLine("\n\tAlumno creado satisfactoriamente.");
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }else
+                        Console.WriteLine("\n\t═════ INGRESAR > ALUMNOS ════════════════════════════════════════════════════════════════");
+                        Console.Write("\n\tID: ");
+                        idAlumno = Console.ReadLine();
+                        Console.Write("\tNombre: ");
+                        nombreAlumno = Console.ReadLine();
+                        Console.Write("\tApellido paterno: ");
+                        apellidoPaternoAlumno = Console.ReadLine();
+                        Console.Write("\tApellido materno: ");
+                        apellidoMaternoAlumno = Console.ReadLine();
+                        Console.Write("\tFecha de nacimiento: ");
+                        fechaNacimientoAlumno = Console.ReadLine();
+                        Console.Write("\tSemestre: ");
+                        semestre = Convert.ToInt32(Console.ReadLine());
+
+                        //Condicional que solo crea otro alumno si el iD proporcionado no existe ya en el sistema.
+                        if(Listas.BuscarIDAlumno(idAlumno) != true)
+                        {
+                            Listas.AgregarAlumnos(new Alumno(idAlumno, nombreAlumno, apellidoPaternoAlumno, apellidoMaternoAlumno, fechaNacimientoAlumno, semestre));
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            System.Console.WriteLine("\n\tAlumno creado satisfactoriamente.");
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            System.Console.WriteLine("\n\tID de alumno ya existente.");
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                    }
+                    catch (System.Exception)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        System.Console.WriteLine("\n\tID de alumno ya existente.");
+                        System.Console.WriteLine("\n\tOcurrio un error, intentelo denuevo.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
+                    
                     Console.Write("\tPrecione cualquier tecla para continuar.");
                     Console.ReadKey();
                     Console.Clear();
@@ -202,9 +212,10 @@ namespace EDD
                         Console.WriteLine("\n\t═════ BUSCAR > ALUMNO > POR ID ════════════════════════════════════════════════════════════════\n");
                             Console.Write("\tID: ");
                             iDAlumno = Console.ReadLine();
-
+                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
                             if(Listas.BuscarIDAlumno(iDAlumno) == true)
-                            {
+                            {   
+                                
                                 System.Console.WriteLine("{0}",Listas.DatosDeAlumnoPorID(iDAlumno));
                             }
 
@@ -218,7 +229,7 @@ namespace EDD
                             Console.WriteLine("\n\t═════ BUSCAR > ALUMNO > POR NOMBRE ════════════════════════════════════════════════════════════════\n");
                             Console.Write("\tNombre: ");
                             alumno = Console.ReadLine();
-
+                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
                             Listas.ImprimirAlumnosPorNombre(alumno);
 
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");
@@ -230,6 +241,7 @@ namespace EDD
                         case 3:
                             Console.WriteLine("\n\t═════ BUSCAR > ALUMNO > TODOS ════════════════════════════════════════════════════════════════\n");
                             Console.Clear();
+                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
                             Listas.ImprimirAlumnos();
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");
                             Console.ReadKey();
@@ -256,7 +268,7 @@ namespace EDD
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA > POR ID ════════════════════════════════════════════════════════════════\n");
                             Console.Write("\tID: ");
                             iDMateria = Console.ReadLine();
-
+                            System.Console.WriteLine("\t{0,-20}{1,-20}","ID","Materia");
                             if(Listas.BuscarIDMateria(iDMateria) == true)
                             {
                                 System.Console.WriteLine("\n{0}",Listas.DatosDeMateriaPorID(iDMateria));
@@ -272,7 +284,7 @@ namespace EDD
                         Console.WriteLine("\n\t═════ BUSCAR > MATERIA > POR NOMBRE ════════════════════════════════════════════════════════════════\n");
                             Console.Write("\tNombre: ");
                             materia = Console.ReadLine();
-
+                            System.Console.WriteLine("\t{0,-20}{1,-20}","ID","Materia");
                             Listas.ImprimirMateriasPorNombre(materia);
 
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");
@@ -283,6 +295,7 @@ namespace EDD
                         
                         case 3: 
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
+                            System.Console.WriteLine("\t{0,-20}{1,-20}","ID","Materia");
                             Listas.ImprimirMaterias();
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");
                             Console.ReadKey();
@@ -309,10 +322,10 @@ namespace EDD
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA POR ALUMNO > POR ID ════════════════════════════════════════════════════════════════\n");
                             Console.Write("\tID: ");
                             iDAsoc = Console.ReadLine();
-
+                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}","ID Asociado","ID del Alumno","ID de la materia","Calificacion");
                             if(Listas.BuscarIDMateriaPorAlumno(iDAsoc) == true)
                             {
-                                System.Console.WriteLine("\n{0}",Listas.DatosMateriasPorAlumno(iDAsoc));
+                                System.Console.WriteLine("{0}",Listas.DatosMateriasPorAlumno(iDAsoc));
                             }
 
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");
@@ -325,9 +338,8 @@ namespace EDD
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA POR ALUMNO > POR ID DEL ALUMNO ════════════════════════════════════════════════════════════════\n");
                             Console.Write("\tID del alumno: ");
                             iDAlumno = Console.ReadLine();
-
+                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}","ID Asociado","ID del Alumno","ID de la materia","Calificacion");
                             Listas.ImprimirMateriasPorAlumnoPorIDAlumno(iDAlumno);
-
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
@@ -336,6 +348,7 @@ namespace EDD
                         
                         case 3:
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
+                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}","ID Asociado","ID del Alumno","ID de la materia","Calificacion");
                             Listas.ImprimirMateriasPorAlumno();
                             Console.Write("\n\tPrecione cualquier tecla para continuar.");
                             Console.ReadKey();

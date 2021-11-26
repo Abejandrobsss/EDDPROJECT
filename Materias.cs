@@ -19,7 +19,7 @@ namespace EDD
         }
         public string DatosMaterias()
         {
-            return string.Format("\t{0}\t{1}",iDMateria,NombreMateria);
+            return string.Format("\t{0,-20}{1,-20}",iDMateria,NombreMateria);
         }
 
         public string IDMateria { get=> iDMateria;}
