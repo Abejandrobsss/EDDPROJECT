@@ -85,10 +85,10 @@ namespace EDD
                     if (menu[i] == menu[y])
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\t"+menu[i] + "              ");
+                        Console.WriteLine("\t " + menu[i]);
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    else Console.WriteLine("\t" + menu[i] + "              ");
+                    else Console.WriteLine("\t" + menu[i]);
                 }
 
                 //-------------------------------------------------------------
