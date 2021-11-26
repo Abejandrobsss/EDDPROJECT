@@ -9,6 +9,7 @@ namespace EDD
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             Interfaz interfaz= new Interfaz();
             interfaz.menuPrincipal();
         }

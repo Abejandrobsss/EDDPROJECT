@@ -13,9 +13,8 @@ namespace EDD
         {
             int opcion;
 
-            Console.WriteLine("\n\t═════ Menu Principal ════════════════════════════════════════════════════════════════");
-            Console.Write("\n\t» 1 Ingresar datos\n\t» 2 Busqueda\n\t» 3 Eliminacion(no implementado)\n\t» 4 Ordenamiento(no implementado)\n\t» 5 Almacenamiento(no implementado)\n\t» 6 Salir\n\n\t  > ");
-            opcion = Convert.ToInt16(Console.ReadLine());
+            //Menu interactivo
+            opcion = MenuInteractivo.MenuInteractivoFlechas("MENU PRINCIPAL", "» Ingresar datos","» Busqueda","» Eliminacion (No implementado)","» Ordenamiento (No implementado)", "» Almacenamiento (No implementado)", "» Salir");
 
             switch (opcion)
             {
@@ -70,17 +69,13 @@ namespace EDD
             string idMateriaMatPorAlumno;
             double calificacionMatPorAlumno;
 
-
-            Console.WriteLine("\n\t═════ INSERTAR ════════════════════════════════════════════════════════════════");
-            Console.Write("\n\t» 1 Alumnos\n\t» 2 Materias\n\t» 3 Materias por alumno\n\t» 4 Volver\n\n\t  > ");
-            opcion = Convert.ToInt16(Console.ReadLine());
-            Console.Clear();
+            //Menu interactivo
+            opcion = MenuInteractivo.MenuInteractivoFlechas("INGRESAR", "» Alumnos","» Materias","» Materias por alumno","» Volver");
             
-
             switch (opcion)
             {
                 case 1:
-                    Console.WriteLine("\n\t═════ INSERTAR > ALUMNOS ════════════════════════════════════════════════════════════════");
+                    Console.WriteLine("\n\t═════ INGRESAR > ALUMNOS ════════════════════════════════════════════════════════════════");
                     Console.Write("\n\tID: ");
                     idAlumno = Console.ReadLine();
                     Console.Write("\tNombre: ");
@@ -96,19 +91,18 @@ namespace EDD
                     if(Listas.BuscarIDAlumno(idAlumno) != true)
                     {
                         Listas.AgregarAlumnos(new Alumno(idAlumno, nombreAlumno, apellidoPaternoAlumno, apellidoMaternoAlumno, fechaNacimientoAlumno));
-                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Green;
                         System.Console.WriteLine("\tAlumno creado satisfactoriamente.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }else
                     {
-                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
                         System.Console.WriteLine("\tID de alumno ya existente.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-
-                    
+                    Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                    Console.ReadKey();
+                    Console.Clear();
                     menuInsertar();
                     break;
 
@@ -122,18 +116,19 @@ namespace EDD
                     if(Listas.BuscarIDMateria(idMaterias) != true)
                     {
                         Listas.AgregarMaterias(new Materias(idMaterias, nombreMaterias));
-                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Green;
                         System.Console.WriteLine("\tMateria creada satisfactoriamente.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }else
                     {
-                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
                         System.Console.WriteLine("\tID de Materia ya existente.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     
+                    Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                    Console.ReadKey();
+                    Console.Clear();
                     menuInsertar();
                     break;
 
@@ -151,19 +146,20 @@ namespace EDD
                     if(Listas.BuscarIDAlumno(idAlumnoMatPorAlumno) == true && Listas.BuscarIDMateria(idMateriaMatPorAlumno) == true)
                     {
                         Listas.AgregarMateriasPorAlumno(new MateriasPorAlumno(idAsocMatPorAlumno, idAlumnoMatPorAlumno, idMateriaMatPorAlumno, calificacionMatPorAlumno));
-                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Green;
                         System.Console.WriteLine("Materia por alumno agregada.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     else
                     {
-                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
-                        System.Console.WriteLine("iD de alumno o de materia inexistentes.");
+                        System.Console.WriteLine("\tID de alumno o de materia inexistentes.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
 
+                    Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                    Console.ReadKey();
+                    Console.Clear();
                     menuInsertar();
                     break;
 
@@ -186,19 +182,16 @@ namespace EDD
             //Parametros para la clase MateriasPorAlumno
             string iDAsoc;
 
-            Console.WriteLine("\n\t═════ BUSCAR ════════════════════════════════════════════════════════════════");
-            Console.Write("\n\t» 1 Alumno\n\t» 2 Materia\n\t» 3 Materias por alumno\n\t» 4 Volver\n\n\t  > ");
-            opcion = Convert.ToInt16(Console.ReadLine());
-            Console.Clear();
+            //Menu interactivo
+            opcion = MenuInteractivo.MenuInteractivoFlechas("BUSCAR", "» Alumno","» Materia","» Materias por alumno","» Volver");
 
             switch (opcion)
             {
                 case 1: // ALUMNO
-                    Console.WriteLine("\n\t═════ BUSCAR > ALUMNO ════════════════════════════════════════════════════════════════");
-                    Console.Write("\n\t» 1 Por ID\n\t» 2 Por nombre\n\t» 3 Todos\n\t» 4 Volver\n\n\t  > ");
-                    opcion = Convert.ToInt16(Console.ReadLine());
+
+                    //Menu interactivo
+                    opcion = MenuInteractivo.MenuInteractivoFlechas("BUSCAR > ALUMNO", "» Por ID","» Por Nombre","» Todos los alumnos","» Volver");
                     Console.Clear();
-                    
 
                     switch (opcion)
                     {
@@ -249,11 +242,10 @@ namespace EDD
                         break;
 
                 case 2:// MATERIA
-                    Console.WriteLine("\n\t═════ BUSCAR > MATERIA ════════════════════════════════════════════════════════════════");
-                    Console.Write("\n\t» 1 Por ID\n\t» 2 Por nombre\n\t» 3 Todos\n\t» 4 Volver\n\n\t  > ");
-                    opcion = Convert.ToInt16(Console.ReadLine());
+
+                    //Menu interactivo
+                    opcion = MenuInteractivo.MenuInteractivoFlechas("BUSCAR > MATERIA", "» Por ID","» Por Nombre","» Todas las materias","» Volver");
                     Console.Clear();
-                    
 
                     switch (opcion)
                     {
@@ -303,11 +295,10 @@ namespace EDD
                     break;
 
                 case 3: // MATERIA POR ALUMNO
-                    Console.WriteLine("\n\t═════ BUSCAR > MATERIA POR ALUMNO ════════════════════════════════════════════════════════════════");
-                    Console.Write("\n\t» 1 Por ID\n\t» 2 Por ID del Alumno\n\t» 3 Todos\n\t» 4 Promedio por ID\n\t» 5 Volver\n\n\t  > ");
-                    opcion = Convert.ToInt16(Console.ReadLine());
+
+                    //Menu interactivo
+                    opcion = MenuInteractivo.MenuInteractivoFlechas("BUSCAR > MATERIA POR ALUMNO", "» Por ID asociado","» Por ID del alumno","» Todas las materias por alumno","» Promedio por ID alumno","» Volver");
                     Console.Clear();
-                    
 
                     switch (opcion)
                     {
