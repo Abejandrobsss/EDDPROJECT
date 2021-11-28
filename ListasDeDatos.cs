@@ -9,18 +9,23 @@ namespace EDD
     class ListasDeDatos
     {
         //Creacion de los ArrayLists para almacenar Objetos.
-        private ArrayList alumnos = new ArrayList();
-        private ArrayList materias= new ArrayList();
-        private ArrayList materiasPorAlumno = new ArrayList();
+        private ArrayList alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
+        public ArrayList materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
+        private ArrayList materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
 
         //funciones para agregar datos a las listas.
         public void AgregarAlumnos(Alumno alumno) => alumnos.Add(alumno);
         public void AgregarMaterias(Materias materia) => materias.Add(materia);
         public void AgregarMateriasPorAlumno(MateriasPorAlumno materiaPorAlumno) => materiasPorAlumno.Add(materiaPorAlumno);
 
+        public ArrayList GetListaAlumnos { get => alumnos; }
+        public ArrayList GetListaMaterias{ get => materias; }
+        public ArrayList GetListaMateriasPorAlumno { get => materiasPorAlumno; }
+
         //Funcion para Verificar si existe un IDAlumno
         public bool BuscarIDAlumno(string iD)
         {
+            alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
             int count=alumnos.Count;
             bool existe= false;
             for (int i = 0; i < count; i++)
@@ -35,6 +40,7 @@ namespace EDD
         //Funcion para Verificar si existe un IDMateria
         public bool BuscarIDMateria(string iD)
         {
+            materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
             int count=materias.Count;
             bool existe= false;
             for (int i = 0; i < count; i++)
@@ -49,11 +55,12 @@ namespace EDD
         //Funcion para Verificar si existe un IDMateriaPorAlumno
         public bool BuscarIDMateriaPorAlumno(string iD)
         {
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
             int count=materiasPorAlumno.Count;
             bool existe= false;
             for (int i = 0; i < count; i++)
             {
-                if(((MateriasPorAlumno)materias[i]).IDAsoc == iD)
+                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc == iD)
                 {
                     existe = true;
                 }
@@ -63,6 +70,7 @@ namespace EDD
         //Funcion para Buscar e imprimir los datos de un alumno mediante su ID.
         public string DatosDeAlumnoPorID(string iD)
         {
+            alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
             int count=alumnos.Count;
             string datos = "";
             for (int i = 0; i < count; i++)
@@ -77,6 +85,7 @@ namespace EDD
         //Funcion para Buscar e imprimir los datos de una Materia mediante su ID.
         public string DatosDeMateriaPorID(string iD)
         {
+            materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
             int count=materias.Count;
             string datos = "";
             for (int i = 0; i < count; i++)
@@ -91,6 +100,7 @@ namespace EDD
         //Funcion para Buscar e imprimir los datos de una MateriasPorAlumno mediante su ID.
         public string DatosMateriasPorAlumno(string iD)
         {
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
             int count=materiasPorAlumno.Count;
             string datos = "";
             for (int i = 0; i < count; i++)
@@ -105,6 +115,7 @@ namespace EDD
         //funcion para imprimir todos los alumnos.
         public void ImprimirAlumnos()
         {
+            alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
             int count = alumnos.Count;
             for (int i = 0; i < count; i++)
             {
@@ -114,6 +125,7 @@ namespace EDD
         //funcion para imprimir todas las materias.
         public void ImprimirMaterias()
         {
+            materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
             int count = materias.Count;
             for (int i = 0; i < count; i++)
             {
@@ -123,6 +135,7 @@ namespace EDD
         //funcion para imprimir todas las materias por alumno.
         public void ImprimirMateriasPorAlumno()
         {
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
             int count = materiasPorAlumno.Count;
             for (int i = 0; i < count; i++)
             {
@@ -132,6 +145,7 @@ namespace EDD
         //Funcion que imprime todos los alumnos que tienen el mismo nombre.
         public void ImprimirAlumnosPorNombre(string nombre)
         {
+            alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
             int count = alumnos.Count;
             for (int i = 0; i < count; i++)
             {
@@ -144,6 +158,7 @@ namespace EDD
         //Funcion que imprime todas las materias que tienen el mismo nombre.
         public void ImprimirMateriasPorNombre(string nombre)
         {
+            materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
             int count = materias.Count;
             for (int i = 0; i < count; i++)
             {
@@ -156,8 +171,8 @@ namespace EDD
         //Funcion que imprime todas las materias por alumno de un Alumno mediante su ID.
         public void ImprimirMateriasPorAlumnoPorIDAlumno(string iD)
         {
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
             int count = materiasPorAlumno.Count;
-            
             for (int i = 0; i < count; i++)
             {
                 if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
@@ -169,6 +184,7 @@ namespace EDD
         //Funcion para calcular y devolver el promedio de un alumno, buscandolo mediante su IDAlumno
         public double Promedio(string iD)
         {
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
             int count = materiasPorAlumno.Count;
             double promedio=0;
             int contador=0;

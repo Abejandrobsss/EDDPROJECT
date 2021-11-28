@@ -12,6 +12,10 @@ namespace EDD
         private string nombreMateria;
 
         //Constructor para crear un Alumno
+        public Materias()
+        {
+
+        }
         public Materias(string iDMateria, string nombreMateria)
         {
             this.iDMateria = iDMateria;
@@ -22,9 +26,7 @@ namespace EDD
             return string.Format("\t{0,-20}{1,-20}",iDMateria,NombreMateria);
         }
 
-        public string IDMateria { get=> iDMateria;}
-        public string NombreMateria { get=> nombreMateria;}
-
- 
+        public string IDMateria { get=> iDMateria; set => iDMateria = value;}
+        public string NombreMateria { get=> nombreMateria; set => nombreMateria = value; }
     }
 }

@@ -8,6 +8,10 @@ namespace EDD
 {
     public class Interfaz
     {
+        string txtAlumnos = "Alumnos.txt";
+        string txtMaterias ="Materias.txt";
+        string txtMPA ="MPA.txt";
+        
         ListasDeDatos Listas = new ListasDeDatos();
         public void menuPrincipal()
         {
@@ -15,19 +19,15 @@ namespace EDD
 
             //Menu interactivo
             opcion = MenuInteractivo.MenuInteractivoFlechas("MENU PRINCIPAL", "» Ingresar datos","» Busqueda","» Eliminacion (No implementado)","» Ordenamiento (No implementado)", "» Almacenamiento (No implementado)", "» Salir");
-
+            Console.Clear();
             switch (opcion)
             {
                 case 1:
-                    Console.Clear();
                     menuInsertar();
-                    
                     break;
 
-                case 2:
-                    Console.Clear();
+                case 2:    
                     menuBusqueda();
-                    
                     break;
 
                 case 3:
@@ -99,6 +99,8 @@ namespace EDD
                             Console.ForegroundColor = ConsoleColor.Green;
                             System.Console.WriteLine("\n\tAlumno creado satisfactoriamente.");
                             Console.ForegroundColor = ConsoleColor.White;
+                            BaseDeDatosLocal.guardarLista(Listas.GetListaAlumnos, txtAlumnos);
+
                         }else
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
@@ -132,6 +134,7 @@ namespace EDD
                         Console.ForegroundColor = ConsoleColor.Green;
                         System.Console.WriteLine("\n\tMateria creada satisfactoriamente.");
                         Console.ForegroundColor = ConsoleColor.White;
+                        BaseDeDatosLocal.guardarLista(Listas.GetListaMaterias, txtMaterias);
                     }else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -162,6 +165,8 @@ namespace EDD
                         Console.ForegroundColor = ConsoleColor.Green;
                         System.Console.WriteLine("\n\tMateria por alumno agregada.");
                         Console.ForegroundColor = ConsoleColor.White;
+                        BaseDeDatosLocal.guardarLista(Listas.GetListaMateriasPorAlumno, txtMPA);
+                        
                     }
                     else
                     {

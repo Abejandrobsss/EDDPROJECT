@@ -14,6 +14,10 @@ namespace EDD
         private double calificacion;
 
         //Constructor para crear una MateriaPorAlumno
+        public MateriasPorAlumno()
+        {
+
+        }
         public MateriasPorAlumno(string iDAsoc, string iDAlumno, string iDMateria, double calificacion)
         {
             this.iDAsoc = iDAsoc;
@@ -28,8 +32,10 @@ namespace EDD
         }
 
         //propiedades
-        public string IDAsoc { get=>iDAsoc;}      
-        public string IDAlumno { get=>iDAlumno;}    
-        public double Calificacion { get=>calificacion;} 
+        public string IDAsoc { get => iDAsoc; set => iDAsoc = value; }      
+        public string IDAlumno { get => iDAlumno; set => iDAlumno = value; }
+
+        public string IDMateria {get => iDMateria; set => iDMateria = value;}    
+        public double Calificacion { get => calificacion; set => calificacion = value; } 
     }
 }
