@@ -1,4 +1,0 @@
-01,Alejandro,Andaverde,del Angel,15/06/2001,3
-02,Joel,Gomez,Mendoza,20/03/2000,5
-03,Maria Fernanda,Gonzalez,Reyes,23/07/2002,3
-04,Daniel,Andaverde,del Angel,09/05/2005,1
