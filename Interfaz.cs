@@ -18,7 +18,7 @@ namespace EDD
             int opcion;
 
             //Menu interactivo
-            opcion = MenuInteractivo.MenuInteractivoFlechas("MENU PRINCIPAL", "» Ingresar datos","» Busqueda","» Eliminacion (No implementado)","» Ordenamiento (No implementado)", "» Almacenamiento (No implementado)", "» Salir");
+            opcion = MenuInteractivo.MenuInteractivoFlechas("MENÚ PRINCIPAL", "» Ingresar datos","» Búsqueda","» Eliminación","» Ordenamiento (No implementado)", "» Almacenamiento (No implementado)", "» Salir");
             Console.Clear();
             switch (opcion)
             {
@@ -31,7 +31,7 @@ namespace EDD
                     break;
 
                 case 3:
-                    
+                    menuEliminar();
                     break;
 
                 case 4:
@@ -387,5 +387,110 @@ namespace EDD
             }
         }
 
+public void menuEliminar()
+        {
+
+            int opcion;
+            //Parameros para la clase Alumno
+            string idAlumno;
+            //Parameros para la clase Materias
+            string idMateria;
+            //Parametros para la clase MateriasPorAlumno
+            string idAsoc;
+
+            //Menu interactivo
+            opcion = MenuInteractivo.MenuInteractivoFlechas("ELIMINAR", "» Alumno", "» Materia", "» Materias por alumno", "» Volver");
+
+            switch (opcion)
+            {
+                case 1: // Alumno
+
+                    //Menu interactivo
+                    opcion = MenuInteractivo.MenuInteractivoFlechas("ELIMINAR > ALUMNO", "» Por ID", "» Volver");
+                    Console.Clear();
+
+                    switch (opcion)
+                    {
+                        case 1:
+                            Console.WriteLine("\n\t═════ ELIMINAR > ALUMNO > POR ID ════════════════════════════════════════════════════════════════\n");
+                            Console.Write("\tID: ");
+                            idAlumno = Console.ReadLine();
+
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
+                            Console.ReadKey();
+                            Console.Clear();
+                            menuBusqueda();
+                            break;
+
+
+                        case 2:
+                            Console.Clear();
+                            menuEliminar();
+                            break;
+                    }
+                    break;
+
+                case 2: // Materia
+
+                    //Menu interactivo
+                    opcion = MenuInteractivo.MenuInteractivoFlechas("ELIMINAR > MATERIA", "» Por ID", "» Volver");
+                    Console.Clear();
+
+                    switch (opcion)
+                    {
+                        case 1:
+                            Console.WriteLine("\n\t═════ ELIMINAR > MATERIA > POR ID ════════════════════════════════════════════════════════════════\n");
+                            Console.Write("\tID: ");
+                            idMateria = Console.ReadLine();
+
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
+                            Console.ReadKey();
+                            Console.Clear();
+                            menuEliminar();
+                            break;
+
+
+                        case 2:
+                            Console.Clear();
+                            menuEliminar();
+                            break;
+                    }
+                    break;
+
+                case 3: // Materia por alumno
+
+                    //Menu interactivo
+                    opcion = MenuInteractivo.MenuInteractivoFlechas("ELIMINAR > MATERIA POR ALUMNO", "» Por ID", "» Volver");
+                    Console.Clear();
+
+                    switch (opcion)
+                    {
+                        case 1:
+                            Console.WriteLine("\n\t═════ ELIMINAR > MATERIAS POR ALUMNO > POR ID ════════════════════════════════════════════════════════════════\n");
+                            Console.Write("\tID: ");
+                            idAsoc = Console.ReadLine();
+
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
+                            Console.ReadKey();
+                            Console.Clear();
+                            menuEliminar();
+                            break;
+
+
+                        case 2:
+                            Console.Clear();
+                            menuEliminar();
+                            break;
+                    }
+                    break;
+
+                case 4:
+                    menuPrincipal();
+                    break;
+            }
+
+
     }
+}
+
 }
