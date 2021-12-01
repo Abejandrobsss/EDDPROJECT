@@ -11,15 +11,13 @@ namespace EDD
         private string iDMateria;
         private string nombreMateria;
 
+        string[] materiaArr;
         //Constructor para crear un Alumno
-        public Materias()
-        {
-
-        }
         public Materias(string iDMateria, string nombreMateria)
         {
             this.iDMateria = iDMateria;
             this.nombreMateria = nombreMateria;
+            materiaArr = new string[2]{iDMateria,nombreMateria};
         }
         public string DatosMaterias()
         {
@@ -28,5 +26,6 @@ namespace EDD
 
         public string IDMateria { get=> iDMateria; set => iDMateria = value;}
         public string NombreMateria { get=> nombreMateria; set => nombreMateria = value; }
+        public string[] MateriaArr{ get => materiaArr; }
     }
 }

@@ -14,14 +14,11 @@ namespace EDD
         private string apellidoPaterno;
         private string apellidoMaterno;
         private string fechaNacimiento;
-        private int semestre;
+        private string semestre;
+        private string[] alumnoArr;
 
         //Constructor para crear un Alumno.
-        public Alumno()
-        {
-
-        }
-        public Alumno(string iDAlumno, string nombre, string apellidoPaterno, string apellidoMaterno, string fechaNacimiento, int semestre)
+        public Alumno(string iDAlumno, string nombre, string apellidoPaterno, string apellidoMaterno, string fechaNacimiento, string semestre)
         {
             this.iDAlumno = iDAlumno;
             this.nombre = nombre;
@@ -29,6 +26,7 @@ namespace EDD
             this.apellidoMaterno = apellidoMaterno;
             this.fechaNacimiento = fechaNacimiento;
             this.semestre = semestre;
+            alumnoArr = new string[6] { iDAlumno, nombre, apellidoPaterno, apellidoMaterno, fechaNacimiento, semestre };
         }
 
         public string DatosAlumno()
@@ -41,7 +39,8 @@ namespace EDD
         public string ApellidoPaterno { get=> apellidoPaterno; set => apellidoPaterno = value;}
         public string ApellidoMaterno { get=> apellidoMaterno; set => apellidoMaterno = value;}
         public string DiaDeNacimiento { get=> fechaNacimiento; set => fechaNacimiento = value;}
-        public int Semestre { get=> semestre; set => semestre = value;}
+        public string Semestre { get=> semestre; set => semestre = value;}
+        public string[] AlumnoArr { get => alumnoArr; }
         
         
     }

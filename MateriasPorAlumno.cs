@@ -13,17 +13,16 @@ namespace EDD
         private string iDMateria;
         private double calificacion;
 
-        //Constructor para crear una MateriaPorAlumno
-        public MateriasPorAlumno()
-        {
+        string[] mPAArr;
 
-        }
+        //Constructor para crear una MateriaPorAlumno
         public MateriasPorAlumno(string iDAsoc, string iDAlumno, string iDMateria, double calificacion)
         {
             this.iDAsoc = iDAsoc;
             this.iDAlumno = iDAlumno;
             this.iDMateria = iDMateria;
             this.calificacion = calificacion;
+            mPAArr = new string[4]{iDAsoc,iDAlumno,iDMateria,calificacion.ToString()};
         }
 
         public string DatosMateriasPorAlumno()
@@ -37,5 +36,6 @@ namespace EDD
 
         public string IDMateria {get => iDMateria; set => iDMateria = value;}    
         public double Calificacion { get => calificacion; set => calificacion = value; } 
+        public string[] MPAArray { get=> mPAArr;} 
     }
 }

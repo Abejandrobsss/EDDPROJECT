@@ -22,6 +22,46 @@ namespace EDD
         public ArrayList GetListaMaterias{ get => materias; }
         public ArrayList GetListaMateriasPorAlumno { get => materiasPorAlumno; }
 
+        public string[,] GetArrAlumnos(ArrayList alumno)
+        {
+            string[,] arreglo = new string[alumno.Count, 6];
+
+            for (int i = 0; i < alumno.Count; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    arreglo[i, j] = ((Alumno)alumno[i]).AlumnoArr[j];
+                }
+            }
+            return arreglo;
+        }
+        public string[,] GetArrMaterias(ArrayList materia)
+        {
+            string[,] arreglo = new string[materia.Count, 6];
+
+            for (int i = 0; i < materia.Count; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    arreglo[i, j] = ((Materias)materia[i]).MateriaArr[j];
+                }
+            }
+            return arreglo;
+        }
+        public string[,] GetArrMPA(ArrayList mPA)
+        {
+            string[,] arreglo = new string[mPA.Count, 6];
+
+            for (int i = 0; i < mPA.Count; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    arreglo[i, j] = ((MateriasPorAlumno)mPA[i]).MPAArray[j];
+                }
+            }
+            return arreglo;
+        }
+
         //Funcion para Verificar si existe un IDAlumno
         public bool BuscarIDAlumno(string iD)
         {
@@ -199,6 +239,64 @@ namespace EDD
             }
             promedio /= contador;
             return promedio;
+        }
+        //Ordenamiento Ascendente - Descendente
+        public static void Ordenamiento(string[,] list, int index, bool ascendente)
+        {
+            int counter = 0;
+            string[,] ArrOrdenado = new string[list.GetLength(0), list.GetLength(1)];
+            string[] tempList = new string[list.GetLength(0)];
+
+            for (int j = 0; j < list.GetLength(0); j++)
+            {
+                tempList[j] = list[j, index];
+            }
+            Array.Sort(tempList);
+            if (ascendente == false) Array.Reverse(tempList);
+
+            for (int i = 1; i < list.GetLength(0); i++)
+            {
+                if (Int32.TryParse(list[0, index], out int resoult))
+                {
+                    for (int j = 0; j < list.GetLength(0); j++)
+                    {
+                        if (tempList[counter] == list[j, index] && ArrOrdenado[list.GetLength(0) - 1, list.GetLength(1) - 1] == null)
+                        {
+                            for (int l = 0; l < list.GetLength(1); l++)
+                            {
+                                ArrOrdenado[counter, l] = list[j, l];
+
+                            }
+                            counter = counter < list.GetLength(0) - 1 ? ++counter : counter;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < list.GetLength(0); j++)
+                    {
+                        if (tempList[counter] == list[j, index] && ArrOrdenado[list.GetLength(0) - 1, list.GetLength(1) - 1] == null)
+                        {
+                            for (int l = 0; l < list.GetLength(1); l++)
+                            {
+                                ArrOrdenado[counter, l] = list[j, l];
+
+                            }
+                            counter = counter < list.GetLength(0) - 1 ? ++counter : counter;
+                        }
+                    }
+
+                }
+
+            }
+            for (int i = 0; i < ArrOrdenado.GetLength(0); i++)
+            {
+                for (int k = 0; k < ArrOrdenado.GetLength(1); k++)
+                {
+                    Console.Write(ArrOrdenado[i, k] + " ");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
