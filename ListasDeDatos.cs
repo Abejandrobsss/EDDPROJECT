@@ -30,7 +30,7 @@ namespace EDD
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    arreglo[i, j] = ((Alumno)alumno[i]).AlumnoArr[j];
+                    arreglo[i, j] = j == 0? string.Format("\t{0,-5}", ((Alumno)alumno[i]).AlumnoArr[j]) : string.Format("{0,-15}", ((Alumno)alumno[i]).AlumnoArr[j]);
                 }
             }
             return arreglo;
@@ -43,7 +43,7 @@ namespace EDD
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    arreglo[i, j] = ((Materias)materia[i]).MateriaArr[j];
+                    arreglo[i, j] = j == 0? string.Format("\t{0,-5}", ((Materias)materia[i]).MateriaArr[j]) : string.Format("{0,-15}", ((Materias)materia[i]).MateriaArr[j]);
                 }
             }
             return arreglo;
@@ -56,7 +56,7 @@ namespace EDD
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    arreglo[i, j] = ((MateriasPorAlumno)mPA[i]).MPAArray[j];
+                    arreglo[i, j] = j == 0? string.Format("\t{0,-5}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]) : string.Format("{0,-15}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]);
                 }
             }
             return arreglo;
@@ -293,7 +293,7 @@ namespace EDD
             {
                 for (int k = 0; k < ArrOrdenado.GetLength(1); k++)
                 {
-                    Console.Write(ArrOrdenado[i, k] + " ");
+                    Console.Write(ArrOrdenado[i, k]);
                 }
                 Console.WriteLine();
             }
