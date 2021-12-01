@@ -37,7 +37,7 @@ namespace EDD
         }
         public string[,] GetArrMaterias(ArrayList materia)
         {
-            string[,] arreglo = new string[materia.Count, 6];
+            string[,] arreglo = new string[materia.Count, 2];
 
             for (int i = 0; i < materia.Count; i++)
             {
@@ -50,7 +50,7 @@ namespace EDD
         }
         public string[,] GetArrMPA(ArrayList mPA)
         {
-            string[,] arreglo = new string[mPA.Count, 6];
+            string[,] arreglo = new string[mPA.Count, 4];
 
             for (int i = 0; i < mPA.Count; i++)
             {
