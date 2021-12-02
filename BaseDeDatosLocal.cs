@@ -46,32 +46,20 @@ namespace EDD
                 switch (archivo)
                 {
                     case "Alumnos.txt":
-                        Alumno alumno = new Alumno();
                         string[] linea1th = lines[i].Split(",");
-                        alumno.IDAlumno= linea1th[0];
-                        alumno.NombreAlumno = linea1th[1];
-                        alumno.ApellidoPaterno = linea1th[2];
-                        alumno.ApellidoMaterno = linea1th[3];
-                        alumno.DiaDeNacimiento = linea1th[4];
-                        alumno.Semestre = Convert.ToInt32(linea1th[5]);
+                        Alumno alumno = new Alumno(linea1th[0],linea1th[1],linea1th[2],linea1th[3],linea1th[4],linea1th[5]);
                         lista.Add(alumno);
                         break;
 
                     case "Materias.txt":
-                        Materias materias = new Materias();
                         string[] linea2nd = lines[i].Split(",");
-                        materias.IDMateria= linea2nd[0];
-                        materias.NombreMateria = linea2nd[1];
+                        Materias materias = new Materias(linea2nd[2],linea2nd[1]);
                         lista.Add(materias);
                         break;
 
                     case "MPA.txt":
-                        MateriasPorAlumno MPA = new MateriasPorAlumno();
                         string[] linea3rd = lines[i].Split(",");
-                        MPA.IDAsoc = linea3rd[0];
-                        MPA.IDAlumno = linea3rd[1];
-                        MPA.IDMateria = linea3rd[2];
-                        MPA.Calificacion = Convert.ToDouble(linea3rd[3]);
+                        MateriasPorAlumno MPA = new MateriasPorAlumno(linea3rd[0],linea3rd[1],linea3rd[2],Convert.ToDouble(linea3rd[3]));
                         lista.Add(MPA);
                         break;
                 }

@@ -58,7 +58,7 @@ namespace EDD
             string apellidoPaternoAlumno;
             string apellidoMaternoAlumno;
             string fechaNacimientoAlumno;
-            int semestre;
+            string semestre;
 
             //Parámetros para la clase Materias
             string idMaterias;
@@ -90,7 +90,7 @@ namespace EDD
                         Console.Write("\tFecha de nacimiento: ");
                         fechaNacimientoAlumno = Console.ReadLine();
                         Console.Write("\tSemestre: ");
-                        semestre = Convert.ToInt32(Console.ReadLine());
+                        semestre = Console.ReadLine();
 
                         //Condicional que solo crea otro alumno si el iD proporcionado no existe ya en el sistema.
                         if(Listas.BuscarIDAlumno(idAlumno) != true)
