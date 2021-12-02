@@ -53,7 +53,7 @@ namespace EDD
 
                     case "Materias.txt":
                         string[] linea2nd = lines[i].Split(",");
-                        Materias materias = new Materias(linea2nd[2],linea2nd[1]);
+                        Materias materias = new Materias(linea2nd[0],linea2nd[1]);
                         lista.Add(materias);
                         break;
 

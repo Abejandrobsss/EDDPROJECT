@@ -115,7 +115,7 @@ namespace EDD
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     
-                    Console.Write("\tPrecione cualquier tecla para continuar.");
+                    Console.Write("\tPresione cualquier tecla para continuar.");
                     Console.ReadKey();
                     Console.Clear();
                     menuInsertar();
@@ -142,7 +142,7 @@ namespace EDD
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     
-                    Console.Write("\tPrecione cualquier tecla para continuar.");
+                    Console.Write("\tPresione cualquier tecla para continuar.");
                     Console.ReadKey();
                     Console.Clear();
                     menuInsertar();
@@ -175,7 +175,7 @@ namespace EDD
                         Console.ForegroundColor = ConsoleColor.White;
                     }
 
-                    Console.Write("\tPrecione cualquier tecla para continuar.");
+                    Console.Write("\tPresione cualquier tecla para continuar.");
                     Console.ReadKey();
                     Console.Clear();
                     menuInsertar();
@@ -224,7 +224,7 @@ namespace EDD
                                 System.Console.WriteLine("{0}",Listas.DatosDeAlumnoPorID(iDAlumno));
                             }
 
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -237,7 +237,7 @@ namespace EDD
                             System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
                             Listas.ImprimirAlumnosPorNombre(alumno);
 
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -248,7 +248,7 @@ namespace EDD
                             Console.Clear();
                             System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}","ID","Nombre","Apellido Paterno","Apellido Materno", "Dia de nacimiento", "Semestre");
                             Listas.ImprimirAlumnos();
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -279,7 +279,7 @@ namespace EDD
                                 System.Console.WriteLine("\n{0}",Listas.DatosDeMateriaPorID(iDMateria));
                             }
 
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -292,7 +292,7 @@ namespace EDD
                             System.Console.WriteLine("\t{0,-20}{1,-20}","ID","Materia");
                             Listas.ImprimirMateriasPorNombre(materia);
 
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -302,7 +302,7 @@ namespace EDD
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
                             System.Console.WriteLine("\t{0,-20}{1,-20}","ID","Materia");
                             Listas.ImprimirMaterias();
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -333,7 +333,7 @@ namespace EDD
                                 System.Console.WriteLine("{0}",Listas.DatosMateriasPorAlumno(iDAsoc));
                             }
 
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -345,7 +345,7 @@ namespace EDD
                             iDAlumno = Console.ReadLine();
                             System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}","ID Asociado","ID del Alumno","ID de la materia","Calificacion");
                             Listas.ImprimirMateriasPorAlumnoPorIDAlumno(iDAlumno);
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -355,7 +355,7 @@ namespace EDD
                             Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
                             System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}","ID Asociado","ID del Alumno","ID de la materia","Calificacion");
                             Listas.ImprimirMateriasPorAlumno();
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
@@ -368,7 +368,7 @@ namespace EDD
 
                             System.Console.WriteLine("\tPromedio: {0}",Listas.Promedio(iDAlumno));
 
-                            Console.Write("\n\tPrecione cualquier tecla para continuar.");
+                            Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
                             Console.Clear();
                             menuBusqueda();
