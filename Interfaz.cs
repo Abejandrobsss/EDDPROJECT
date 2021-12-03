@@ -387,10 +387,11 @@ namespace EDD
             }
         }
 
-public void menuEliminar()
+ public void menuEliminar()
         {
 
             int opcion;
+            int opcionH;
             //Parameros para la clase Alumno
             string idAlumno;
             //Parameros para la clase Materias
@@ -400,6 +401,7 @@ public void menuEliminar()
 
             //Menu interactivo
             opcion = MenuInteractivo.MenuInteractivoFlechas("ELIMINAR", "» Alumno", "» Materia", "» Materias por alumno", "» Volver");
+
 
             switch (opcion)
             {
@@ -416,10 +418,37 @@ public void menuEliminar()
                             Console.Write("\tID: ");
                             idAlumno = Console.ReadLine();
 
-                            Console.Write("\n\tPresione cualquier tecla para continuar.");
-                            Console.ReadKey();
-                            Console.Clear();
-                            menuBusqueda();
+                            System.Console.WriteLine("\n\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
+                            if (Listas.BuscarIDAlumno(idAlumno) == true)
+                            {
+
+                                System.Console.WriteLine("{0}", Listas.DatosDeAlumnoPorID(idAlumno));
+                            }
+
+                            //Menu interactivo
+                            opcionH = MenuInteractivoHorizontal.MenuInteractivoFlechasH("» Confirmar acción", "» Volver");
+
+                            switch (opcionH)
+                            {
+                                case 1:
+                                    Listas.EliminarAlumnos(Listas.PosAlumno(idAlumno));
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    System.Console.WriteLine("\n\tAlumno eliminado.");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    BaseDeDatosLocal.guardarLista(Listas.GetListaAlumnos, txtAlumnos);
+
+                                    Console.Write("\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    menuEliminar();
+
+                                    break;
+
+                                case 2:
+                                    menuEliminar();
+                                    break;
+                            }
+
                             break;
 
 
@@ -443,10 +472,37 @@ public void menuEliminar()
                             Console.Write("\tID: ");
                             idMateria = Console.ReadLine();
 
-                            Console.Write("\n\tPresione cualquier tecla para continuar.");
-                            Console.ReadKey();
-                            Console.Clear();
-                            menuEliminar();
+                            System.Console.WriteLine("\n\t{0,-20}{1,-20}", "ID", "Nombre");
+                            if (Listas.BuscarIDMateria(idMateria) == true)
+                            {
+
+                                System.Console.WriteLine("{0}", Listas.DatosDeMateriaPorID(idMateria));
+                            }
+
+                            //Menu interactivo
+                            opcionH = MenuInteractivoHorizontal.MenuInteractivoFlechasH("» Confirmar acción", "» Volver");
+
+                            switch (opcionH)
+                            {
+                                case 1:
+                                    Listas.EliminarMaterias(Listas.PosMateria(idMateria));
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    System.Console.WriteLine("\n\tMateria eliminada.");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    BaseDeDatosLocal.guardarLista(Listas.GetListaMaterias, txtMaterias);
+
+                                    Console.Write("\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    menuEliminar();
+
+                                    break;
+
+                                case 2:
+                                    menuEliminar();
+                                    break;
+                            }
+
                             break;
 
 
@@ -467,13 +523,40 @@ public void menuEliminar()
                     {
                         case 1:
                             Console.WriteLine("\n\t═════ ELIMINAR > MATERIAS POR ALUMNO > POR ID ════════════════════════════════════════════════════════════════\n");
-                            Console.Write("\tID: ");
+                            Console.Write("\tID Asociado: ");
                             idAsoc = Console.ReadLine();
 
-                            Console.Write("\n\tPresione cualquier tecla para continuar.");
-                            Console.ReadKey();
-                            Console.Clear();
-                            menuEliminar();
+                            System.Console.WriteLine("\n\t{0,-20}{1,-20}{2,-20}{3,-20}", "ID Asociado", "ID del Alumno", "ID de la materia", "Calificación");
+                            if (Listas.BuscarIDMateriaPorAlumno(idAsoc) == true)
+                            {
+
+                                System.Console.WriteLine("{0}", Listas.DatosMateriasPorAlumno(idAsoc));
+                            }
+
+                            //Menu interactivo
+                            opcionH = MenuInteractivoHorizontal.MenuInteractivoFlechasH("» Confirmar acción", "» Volver");
+
+                            switch (opcionH)
+                            {
+                                case 1:
+                                    Listas.EliminarMateriasPorAlumno(Listas.PosMateriaPorAlumno(idAsoc));
+                                    Console.ForegroundColor = ConsoleColor.Green;
+                                    System.Console.WriteLine("\n\tMateria Por Alumno eliminada.");
+                                    Console.ForegroundColor = ConsoleColor.White;
+                                    BaseDeDatosLocal.guardarLista(Listas.GetListaMateriasPorAlumno, txtMPA);
+
+                                    Console.Write("\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    menuEliminar();
+
+                                    break;
+
+                                case 2:
+                                    menuEliminar();
+                                    break;
+                            }
+
                             break;
 
 

@@ -240,6 +240,12 @@ namespace EDD
             promedio /= contador;
             return promedio;
         }
+
+        //Funciones para eliminar datos de las listas
+        public void EliminarAlumnos(int alumnoE) => alumnos.RemoveAt(alumnoE);
+        public void EliminarMaterias(int materiaE) => materias.RemoveAt(materiaE);
+        public void EliminarMateriasPorAlumno(int MPAE) => materiasPorAlumno.RemoveAt(MPAE);
+        
         //Ordenamiento Ascendente - Descendente
         public static void Ordenamiento(string[,] list, int index, bool ascendente)
         {
