@@ -241,6 +241,60 @@ namespace EDD
             return promedio;
         }
 
+                //Función para obtener posición de un Alumno según su ID
+        public int PosAlumno(string iD)
+        {
+            alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
+            int count=alumnos.Count;
+            //bool existe= false;
+            int posicion=0;
+
+            for (int i = 0; i < count; i++)
+            {
+                if(((Alumno)alumnos[i]).IDAlumno == iD)
+                {
+                    posicion = i;
+                }
+            }
+            return posicion;
+        }
+
+        //Función para obtener posición de una Materia según su ID
+        public int PosMateria(string iD)
+        {
+            materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
+            int count=materias.Count;
+            //bool existe= false;
+            int posicion=0;
+
+            for (int i = 0; i < count; i++)
+            {
+                if(((Materias)materias[i]).IDMateria == iD)
+                {
+                    posicion = i;
+                }
+            }
+            return posicion;
+        }
+
+        //Función para obtener posición de una MateriaPorAlumno según su ID
+        public int PosMateriaPorAlumno(string iD)
+        {
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
+            int count=materiasPorAlumno.Count;
+            //bool existe= false;
+            int posicion=0;
+
+            for (int i = 0; i < count; i++)
+            {
+                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc == iD)
+                {
+                    posicion = i;
+                }
+            }
+            return posicion;
+        }
+
         //Funciones para eliminar datos de las listas
         public void EliminarAlumnos(int alumnoE) => alumnos.RemoveAt(alumnoE);
         public void EliminarMaterias(int materiaE) => materias.RemoveAt(materiaE);
