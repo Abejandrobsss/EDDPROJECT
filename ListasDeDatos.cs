@@ -19,7 +19,7 @@ namespace EDD
         public void AgregarMateriasPorAlumno(MateriasPorAlumno materiaPorAlumno) => materiasPorAlumno.Add(materiaPorAlumno);
 
         public ArrayList GetListaAlumnos { get => alumnos; }
-        public ArrayList GetListaMaterias{ get => materias; }
+        public ArrayList GetListaMaterias { get => materias; }
         public ArrayList GetListaMateriasPorAlumno { get => materiasPorAlumno; }
 
         public string[,] GetArrAlumnos(ArrayList alumno)
@@ -30,7 +30,7 @@ namespace EDD
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    arreglo[i, j] = j == 0? string.Format("\t{0,-5}", ((Alumno)alumno[i]).AlumnoArr[j]) : string.Format("{0,-15}", ((Alumno)alumno[i]).AlumnoArr[j]);
+                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-5}", ((Alumno)alumno[i]).AlumnoArr[j]) : string.Format("{0,-15}", ((Alumno)alumno[i]).AlumnoArr[j]);
                 }
             }
             return arreglo;
@@ -43,7 +43,7 @@ namespace EDD
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    arreglo[i, j] = j == 0? string.Format("\t{0,-5}", ((Materias)materia[i]).MateriaArr[j]) : string.Format("{0,-15}", ((Materias)materia[i]).MateriaArr[j]);
+                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-5}", ((Materias)materia[i]).MateriaArr[j]) : string.Format("{0,-15}", ((Materias)materia[i]).MateriaArr[j]);
                 }
             }
             return arreglo;
@@ -56,7 +56,7 @@ namespace EDD
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    arreglo[i, j] = j == 0? string.Format("\t{0,-5}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]) : string.Format("{0,-15}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]);
+                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-5}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]) : string.Format("{0,-15}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]);
                 }
             }
             return arreglo;
@@ -66,11 +66,11 @@ namespace EDD
         public bool BuscarIDAlumno(string iD)
         {
             alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
-            int count=alumnos.Count;
-            bool existe= false;
+            int count = alumnos.Count;
+            bool existe = false;
             for (int i = 0; i < count; i++)
             {
-                if(((Alumno)alumnos[i]).IDAlumno == iD)
+                if (((Alumno)alumnos[i]).IDAlumno == iD)
                 {
                     existe = true;
                 }
@@ -81,11 +81,11 @@ namespace EDD
         public bool BuscarIDMateria(string iD)
         {
             materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
-            int count=materias.Count;
-            bool existe= false;
+            int count = materias.Count;
+            bool existe = false;
             for (int i = 0; i < count; i++)
             {
-                if(((Materias)materias[i]).IDMateria == iD)
+                if (((Materias)materias[i]).IDMateria == iD)
                 {
                     existe = true;
                 }
@@ -96,11 +96,11 @@ namespace EDD
         public bool BuscarIDMateriaPorAlumno(string iD)
         {
             materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
-            int count=materiasPorAlumno.Count;
-            bool existe= false;
+            int count = materiasPorAlumno.Count;
+            bool existe = false;
             for (int i = 0; i < count; i++)
             {
-                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc == iD)
+                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc == iD)
                 {
                     existe = true;
                 }
@@ -111,11 +111,11 @@ namespace EDD
         public string DatosDeAlumnoPorID(string iD)
         {
             alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
-            int count=alumnos.Count;
+            int count = alumnos.Count;
             string datos = "";
             for (int i = 0; i < count; i++)
             {
-                if(((Alumno)alumnos[i]).IDAlumno == iD)
+                if (((Alumno)alumnos[i]).IDAlumno == iD)
                 {
                     datos = ((Alumno)alumnos[i]).DatosAlumno();
                 }
@@ -126,11 +126,11 @@ namespace EDD
         public string DatosDeMateriaPorID(string iD)
         {
             materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
-            int count=materias.Count;
+            int count = materias.Count;
             string datos = "";
             for (int i = 0; i < count; i++)
             {
-                if(((Materias)materias[i]).IDMateria == iD)
+                if (((Materias)materias[i]).IDMateria == iD)
                 {
                     datos = ((Materias)materias[i]).DatosMaterias();
                 }
@@ -141,11 +141,11 @@ namespace EDD
         public string DatosMateriasPorAlumno(string iD)
         {
             materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
-            int count=materiasPorAlumno.Count;
+            int count = materiasPorAlumno.Count;
             string datos = "";
             for (int i = 0; i < count; i++)
             {
-                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc == iD)
+                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc == iD)
                 {
                     datos = ((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno();
                 }
@@ -189,7 +189,7 @@ namespace EDD
             int count = alumnos.Count;
             for (int i = 0; i < count; i++)
             {
-                if(((Alumno)alumnos[i]).NombreAlumno == nombre)
+                if (((Alumno)alumnos[i]).NombreAlumno == nombre)
                 {
                     System.Console.WriteLine(((Alumno)alumnos[i]).DatosAlumno());
                 }
@@ -202,7 +202,7 @@ namespace EDD
             int count = materias.Count;
             for (int i = 0; i < count; i++)
             {
-                if(((Materias)materias[i]).NombreMateria == nombre)
+                if (((Materias)materias[i]).NombreMateria == nombre)
                 {
                     System.Console.WriteLine(((Materias)materias[i]).DatosMaterias());
                 }
@@ -215,7 +215,7 @@ namespace EDD
             int count = materiasPorAlumno.Count;
             for (int i = 0; i < count; i++)
             {
-                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
+                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
                 {
                     System.Console.WriteLine(((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());
                 }
@@ -226,12 +226,12 @@ namespace EDD
         {
             materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
             int count = materiasPorAlumno.Count;
-            double promedio=0;
-            int contador=0;
-            
+            double promedio = 0;
+            int contador = 0;
+
             for (int i = 0; i < count; i++)
             {
-                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
+                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
                 {
                     promedio += ((MateriasPorAlumno)materiasPorAlumno[i]).Calificacion;
                     contador++;
@@ -241,17 +241,17 @@ namespace EDD
             return promedio;
         }
 
-                //Función para obtener posición de un Alumno según su ID
+        //Función para obtener posición de un Alumno según su ID
         public int PosAlumno(string iD)
         {
             alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
-            int count=alumnos.Count;
+            int count = alumnos.Count;
             //bool existe= false;
-            int posicion=0;
+            int posicion = 0;
 
             for (int i = 0; i < count; i++)
             {
-                if(((Alumno)alumnos[i]).IDAlumno == iD)
+                if (((Alumno)alumnos[i]).IDAlumno == iD)
                 {
                     posicion = i;
                 }
@@ -263,13 +263,13 @@ namespace EDD
         public int PosMateria(string iD)
         {
             materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
-            int count=materias.Count;
+            int count = materias.Count;
             //bool existe= false;
-            int posicion=0;
+            int posicion = 0;
 
             for (int i = 0; i < count; i++)
             {
-                if(((Materias)materias[i]).IDMateria == iD)
+                if (((Materias)materias[i]).IDMateria == iD)
                 {
                     posicion = i;
                 }
@@ -281,13 +281,13 @@ namespace EDD
         public int PosMateriaPorAlumno(string iD)
         {
             materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
-            int count=materiasPorAlumno.Count;
+            int count = materiasPorAlumno.Count;
             //bool existe= false;
-            int posicion=0;
+            int posicion = 0;
 
             for (int i = 0; i < count; i++)
             {
-                if(((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc == iD)
+                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc == iD)
                 {
                     posicion = i;
                 }
@@ -295,11 +295,59 @@ namespace EDD
             return posicion;
         }
 
+        //Funcion para Verificar si existe un IDAlumno en IDMateriaPorAlumno 
+        public bool BuscarIDAlumnoIDMateriaPorAlumno(string iD)
+        {
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
+            int count = materiasPorAlumno.Count;
+            bool existe = false;
+            for (int i = 0; i < count; i++)
+            {
+                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
+                {
+                    existe = true;
+                }
+            }
+            return existe;
+        }
+
+
         //Funciones para eliminar datos de las listas
-        public void EliminarAlumnos(int alumnoE) => alumnos.RemoveAt(alumnoE);
+        public void EliminarAlumnos(int iDalumnoE, string STRINGiDalumnoE)
+        {
+            alumnos.RemoveAt(iDalumnoE);
+            ArrayList listaTemp = new ArrayList();
+
+            //Eliminación cruzada
+
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
+
+            int count = materiasPorAlumno.Count;
+            for (int i = 0; i < count; i++)
+            {
+
+                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno != STRINGiDalumnoE)
+                {
+                    listaTemp.Add(((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());
+                }
+            }
+
+            materiasPorAlumno.Clear();
+
+            for (int i = 0; i < listaTemp.Count; i++)
+            {
+                //Código para paar de listaTemp[i] a materiasPorAlumno 
+                                            
+            }
+
+            /*for (int i = 0; i < listaTemp.Count; i++)
+            {
+                Console.WriteLine("//" + ((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());            
+            }*/
+        }
         public void EliminarMaterias(int materiaE) => materias.RemoveAt(materiaE);
         public void EliminarMateriasPorAlumno(int MPAE) => materiasPorAlumno.RemoveAt(MPAE);
-        
+
         //Ordenamiento Ascendente - Descendente
         public static void Ordenamiento(string[,] list, int index, bool ascendente)
         {

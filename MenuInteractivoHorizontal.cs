@@ -40,6 +40,42 @@ namespace EDD
             return y+1;
         }
 
+        public static int MenuInteractivoFlechasH(string op1, string op2,string op3, string op4)
+        {
+            int y = 0;
+            int options = 3;
+            string[] menu = { op1, op2, op3, op4 };
+
+            y = FlechasConOpcionesH(menu, options, y);
+
+            Console.Clear();
+            return y+1;
+        }
+
+        public static int MenuInteractivoFlechasH(string op1, string op2,string op3, string op4, string op5)
+        {
+            int y = 0;
+            int options = 4;
+            string[] menu = { op1, op2, op3, op4, op5 };
+
+            y = FlechasConOpcionesH(menu, options, y);
+
+            Console.Clear();
+            return y+1;
+        }
+
+        public static int MenuInteractivoFlechasH(string op1, string op2,string op3, string op4, string op5, string op6)
+        {
+            int y = 0;
+            int options = 5;
+            string[] menu = { op1, op2, op3, op4, op5, op6};
+
+            y = FlechasConOpcionesH(menu, options, y);
+
+            Console.Clear();
+            return y+1;
+        }
+
         //----------------------------------------------------------------------
         private static int FlechasConOpcionesH(string[] menu,int options, int y)
         {
@@ -52,7 +88,7 @@ namespace EDD
                     if (menu[i] == menu[y])
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("\t " + menu[i]);
+                        Console.Write("\t" + menu[i]);
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     else Console.Write("\t" + menu[i]);
