@@ -35,11 +35,11 @@ namespace EDD
                     break;
 
                 case 4:
-
+                    menuOrdenamiento();
                     break;
 
                 case 5:
-                    menuImportar();
+                    //menuImportar();
                     break;
 
                 case 6:
@@ -193,7 +193,6 @@ namespace EDD
         {
 
             int opcion;
-            int opcionH;
             //Parameros para la clase Alumno
             string iDAlumno;
             string alumno;
@@ -248,19 +247,9 @@ namespace EDD
 
                         case 3:
                             Console.WriteLine("\n\t═════ BUSCAR > ALUMNO > TODOS ════════════════════════════════════════════════════════════════\n");
-                            Console.Clear();
+                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
 
-                            //System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
-                        
-                            opcionH = MenuInteractivoHorizontal.MenuInteractivoFlechasH("ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
                             Listas.ImprimirAlumnos();
-
-                            switch (opcionH)
-                            {
-                                case 1:
-
-                                break;
-                            }
 
                             Console.Write("\n\tPresione cualquier tecla para continuar.");
                             Console.ReadKey();
@@ -448,7 +437,7 @@ namespace EDD
                             switch (opcionH)
                             {
                                 case 1:
-                                    Listas.EliminarAlumnos(Listas.PosAlumno(idAlumno),idAlumno);
+                                    Listas.EliminarAlumnos(Listas.PosAlumno(idAlumno), idAlumno);
                                     Console.ForegroundColor = ConsoleColor.Green;
                                     System.Console.WriteLine("\n\tAlumno eliminado.");
                                     Console.ForegroundColor = ConsoleColor.White;
@@ -598,19 +587,87 @@ namespace EDD
 
 
         }
-    
-        public void menuImportar()
+
+        /*public void menuImportar()
         {
             int opcion;
             int opcionH;
-            //Parameros para la clase Alumno
+            
             string ruta;
 
             //Menu interactivo
             opcion = MenuInteractivo.MenuInteractivoFlechas("IMPORTAR DATOS", "» Ingresar ruta", "» Volver");
 
+        }*/
+
+        public void menuOrdenamiento()
+        {
+            int opcion;
+            int opcion2; //atributo por el que se ordenará
+            int opcion3; //ascendente o descendente
+            bool opcion3AD = true; //booleano para pasar comom argumento y ordenar ascendente o descendente
+            string opcionFinal;
+            //Parameros para la clase Alumno
+            string iDAlumno;
+            string alumno;
+            //Parameros para la clase Materias
+            string iDMateria;
+            string materia;
+            //Parametros para la clase MateriasPorAlumno
+            string iDAsoc;
+
+            //Menu interactivo
+            opcion = MenuInteractivo.MenuInteractivoFlechas("ORDENAR", "» Alumno", "» Materia", "» Materias por alumno", "» Volver");
+
+            switch (opcion)
+            {
+                case 1: //Ordenar alumnos
+
+                    opcion2 = MenuInteractivo.MenuInteractivoFlechas("ORDENAR > ALUMNO", "» ID", "» Nombre", "» Apellido Paterno", "Apellido Materno", "Día de nacimiento", "Semestre", "Volver");
+
+                    opcion3 = MenuInteractivoHorizontal.MenuInteractivoFlechasH("» ↑", "» ↓");
+
+                    switch (opcion3)
+                    {
+                        case 1:
+                            opcion3AD = true;
+                            break;
+
+                        case 2:
+                            opcion3AD = false;
+                            break;
+                    }
+
+                    System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
+
+                    Listas.ImprimirAlumnos();
+
+                    Console.Write("\n\tPresione cualquier tecla para continuar con el ordenamiento.");
+                    Console.ReadKey();
+
+                    ListasDeDatos.Ordenamiento(Listas.GetArrAlumnos(Listas.GetListaAlumnos), opcion3, opcion3AD);
+
+                    Console.ReadKey();
+
+                    System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
+                    
+
+
+                    break;
+
+                case 2: //Ordenar materias
+                    break;
+
+                case 3: //Ordenar materias por alumno
+                    break;
+
+                case 4: //Volver
+                    Console.Clear();
+                    menuPrincipal();
+                    break;
+
+            }
         }
-    
     }
 
 

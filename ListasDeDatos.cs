@@ -336,7 +336,7 @@ namespace EDD
 
             for (int i = 0; i < listaTemp.Count; i++)
             {
-                //Código para paar de listaTemp[i] a materiasPorAlumno 
+                //Código para pasar de listaTemp[i] a materiasPorAlumno 
                                             
             }
 

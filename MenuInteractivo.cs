@@ -15,9 +15,9 @@ namespace EDD
             y = FlechasConOpciones(menu, options, y, etiqueta);
 
             Console.Clear();
-            return y+1;
+            return y + 1;
         }
-        public static int MenuInteractivoFlechas(string etiqueta, string op1,string op2)
+        public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2)
         {
             int y = 0;
             int options = 1;
@@ -26,9 +26,9 @@ namespace EDD
             y = FlechasConOpciones(menu, options, y, etiqueta);
 
             Console.Clear();
-            return y+1;
+            return y + 1;
         }
-        public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2,string op3)
+        public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2, string op3)
         {
             int y = 0;
             int options = 2;
@@ -37,7 +37,7 @@ namespace EDD
             y = FlechasConOpciones(menu, options, y, etiqueta);
 
             Console.Clear();
-            return y+1;
+            return y + 1;
         }
         public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2, string op3, string op4)
         {
@@ -48,7 +48,7 @@ namespace EDD
             y = FlechasConOpciones(menu, options, y, etiqueta);
 
             Console.Clear();
-            return y+1;
+            return y + 1;
         }
         public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2, string op3, string op4, string op5)
         {
@@ -59,9 +59,9 @@ namespace EDD
             y = FlechasConOpciones(menu, options, y, etiqueta);
 
             Console.Clear();
-            return y+1;
+            return y + 1;
         }
-        public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2, string op3, string op4, string op5,string op6)
+        public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2, string op3, string op4, string op5, string op6)
         {
             int y = 0;
             int options = 5;
@@ -70,16 +70,41 @@ namespace EDD
             y = FlechasConOpciones(menu, options, y, etiqueta);
 
             Console.Clear();
-            return y+1;
+            return y + 1;
         }
 
+        public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2, string op3, string op4, string op5, string op6, string op7)
+        {
+            int y = 0;
+            int options = 6;
+            string[] menu = { op1, op2, op3, op4, op5, op6, op7 };
+
+            y = FlechasConOpciones(menu, options, y, etiqueta);
+
+            Console.Clear();
+            return y + 1;
+        }
+
+        public static int MenuInteractivoFlechas(string etiqueta, string op1, string op2, string op3, string op4, string op5, string op6, string op7, string op8)
+        {
+            int y = 0;
+            int options = 7;
+            string[] menu = { op1, op2, op3, op4, op5, op6, op7, op8 };
+
+            y = FlechasConOpciones(menu, options, y, etiqueta);
+
+            Console.Clear();
+            return y + 1;
+        }
+
+
         //----------------------------------------------------------------------
-        private static int FlechasConOpciones(string[] menu,int options, int y, string etiqueta)
+        private static int FlechasConOpciones(string[] menu, int options, int y, string etiqueta)
         {
             ConsoleKey cKey;
             do
             {
-                Console.WriteLine("\n\t═════ {0} ════════════════════════════════════════════════════════════════\n",etiqueta);
+                Console.WriteLine("\n\t═════ {0} ════════════════════════════════════════════════════════════════\n", etiqueta);
                 for (int i = 0; i < options + 1; i++)
                 {
                     if (menu[i] == menu[y])
@@ -112,5 +137,5 @@ namespace EDD
         }
     }
 
-    
+
 }
