@@ -606,15 +606,6 @@ namespace EDD
             int opcion2; //atributo por el que se ordenará
             int opcion3; //ascendente o descendente
             bool opcion3AD = true; //booleano para pasar comom argumento y ordenar ascendente o descendente
-            string opcionFinal;
-            //Parameros para la clase Alumno
-            string iDAlumno;
-            string alumno;
-            //Parameros para la clase Materias
-            string iDMateria;
-            string materia;
-            //Parametros para la clase MateriasPorAlumno
-            string iDAsoc;
 
             //Menu interactivo
             opcion = MenuInteractivo.MenuInteractivoFlechas("ORDENAR", "» Alumno", "» Materia", "» Materias por alumno", "» Volver");
