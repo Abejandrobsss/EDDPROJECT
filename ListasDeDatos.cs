@@ -41,7 +41,7 @@ namespace EDD
 
             for (int i = 0; i < materia.Count; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 2; j++)
                 {
                     arreglo[i, j] = j == 0 ? string.Format("\t{0,-20}", ((Materias)materia[i]).MateriaArr[j]) : string.Format("{0,-20}", ((Materias)materia[i]).MateriaArr[j]);
                 }
@@ -54,7 +54,7 @@ namespace EDD
 
             for (int i = 0; i < mPA.Count; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 4; j++)
                 {
                     arreglo[i, j] = j == 0 ? string.Format("\t{0,-20}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]) : string.Format("{0,-20}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]);
                 }

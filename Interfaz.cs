@@ -18,7 +18,7 @@ namespace EDD
             int opcion;
 
             //Menu interactivo
-            opcion = MenuInteractivo.MenuInteractivoFlechas("MENÚ PRINCIPAL", "» Ingresar datos", "» Búsqueda", "» Eliminación", "» Ordenamiento (No implementado)", "» Importar datos (No implementado)", "» Salir");
+            opcion = MenuInteractivo.MenuInteractivoFlechas("MENÚ PRINCIPAL", "» Ingresar datos", "» Búsqueda", "» Eliminación", "» Ordenamiento", "» Importar datos (No implementado)", "» Salir");
             Console.Clear();
             switch (opcion)
             {
@@ -610,13 +610,18 @@ namespace EDD
             switch (opcion)
             {
                 case 1: //Ordenar alumnos
-                    MenuInteractivoOrdenamiento.MenuInteractivoAlumnos("ID","NOMBRE","APELLIDO PATERNO","APELLIDO MATERNO","DIA DE NACIMIENTO", "SEMESTRE");
+                    MenuInteractivoOrdenamiento.MenuInteractivoOrd("ID","NOMBRE","APELLIDO PATERNO","APELLIDO MATERNO","DIA DE NACIMIENTO", "SEMESTRE");
+                    menuOrdenamiento();
                     break;
 
                 case 2: //Ordenar materias
+                    MenuInteractivoOrdenamiento.MenuInteractivoOrd("ID","MATERIA");
+                    menuOrdenamiento();
                     break;
 
                 case 3: //Ordenar materias por alumno
+                    MenuInteractivoOrdenamiento.MenuInteractivoOrd("ID Asociado", "ID Alumno", "ID MATERIA", "CALIFICACION");
+                    menuOrdenamiento();
                     break;
 
                 case 4: //Volver
