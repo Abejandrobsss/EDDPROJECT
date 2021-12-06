@@ -12,7 +12,7 @@ namespace EDD
         string txtMaterias = "Materias.txt";
         string txtMPA = "MPA.txt";
 
-        ListasDeDatos Listas = new ListasDeDatos();
+        public static ListasDeDatos Listas = new ListasDeDatos();
         public void menuPrincipal()
         {
             int opcion;
@@ -603,18 +603,6 @@ namespace EDD
         public void menuOrdenamiento()
         {
             int opcion;
-            int opcion2; //atributo por el que se ordenará
-            int opcion3; //ascendente o descendente
-            bool opcion3AD = true; //booleano para pasar comom argumento y ordenar ascendente o descendente
-            string opcionFinal;
-            //Parameros para la clase Alumno
-            string iDAlumno;
-            string alumno;
-            //Parameros para la clase Materias
-            string iDMateria;
-            string materia;
-            //Parametros para la clase MateriasPorAlumno
-            string iDAsoc;
 
             //Menu interactivo
             opcion = MenuInteractivo.MenuInteractivoFlechas("ORDENAR", "» Alumno", "» Materia", "» Materias por alumno", "» Volver");
@@ -622,37 +610,7 @@ namespace EDD
             switch (opcion)
             {
                 case 1: //Ordenar alumnos
-
-                    opcion2 = MenuInteractivo.MenuInteractivoFlechas("ORDENAR > ALUMNO", "» ID", "» Nombre", "» Apellido Paterno", "Apellido Materno", "Día de nacimiento", "Semestre", "Volver");
-
-                    opcion3 = MenuInteractivoHorizontal.MenuInteractivoFlechasH("» ↑", "» ↓");
-
-                    switch (opcion3)
-                    {
-                        case 1:
-                            opcion3AD = true;
-                            break;
-
-                        case 2:
-                            opcion3AD = false;
-                            break;
-                    }
-
-                    System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
-
-                    Listas.ImprimirAlumnos();
-
-                    Console.Write("\n\tPresione cualquier tecla para continuar con el ordenamiento.");
-                    Console.ReadKey();
-
-                    ListasDeDatos.Ordenamiento(Listas.GetArrAlumnos(Listas.GetListaAlumnos), opcion3, opcion3AD);
-
-                    Console.ReadKey();
-
-                    System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
-                    
-
-
+                    MenuInteractivoOrdenamiento.MenuInteractivoAlumnos("ID","NOMBRE","APELLIDO PATERNO","APELLIDO MATERNO","DIA DE NACIMIENTO", "SEMESTRE");
                     break;
 
                 case 2: //Ordenar materias

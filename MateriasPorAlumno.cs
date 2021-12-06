@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace EDD
 {
-    class MateriasPorAlumno
+    public class MateriasPorAlumno
     {
         //Declaración de los atributos
         private string iDAsoc;
