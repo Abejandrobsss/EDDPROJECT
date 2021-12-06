@@ -420,6 +420,7 @@ namespace EDD
                         case 1:
                             Console.WriteLine("\n\t═════ ELIMINAR > ALUMNO > POR ID ════════════════════════════════════════════════════════════════\n");
 
+                            System.Console.WriteLine("\n\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
                             Listas.ImprimirAlumnos();
 
                             Console.Write("\n\t» ID: ");
@@ -429,6 +430,14 @@ namespace EDD
                             if (Listas.BuscarIDAlumno(idAlumno) == true)
                             {
                                 System.Console.WriteLine("{0}", Listas.DatosDeAlumnoPorID(idAlumno));
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                System.Console.WriteLine("\n\tAlumno inexistente.");
+                                Console.ReadKey();
+                                Console.Clear();
+                                menuEliminar();
                             }
 
                             //Menu interactivo
@@ -477,16 +486,26 @@ namespace EDD
                         case 1:
                             Console.WriteLine("\n\t═════ ELIMINAR > MATERIA > POR ID ════════════════════════════════════════════════════════════════\n");
 
+                            System.Console.WriteLine("\t{0,-20}{1,-20}", "ID", "Materia");
                             Listas.ImprimirMaterias();
 
                             Console.Write("\n\t» ID: ");
                             idMateria = Console.ReadLine();
+                            Console.WriteLine();
 
-                            System.Console.WriteLine("\n\t{0,-20}{1,-20}", "ID", "Nombre");
+                            System.Console.WriteLine("\t{0,-20}{1,-20}", "ID", "Materia");
                             if (Listas.BuscarIDMateria(idMateria) == true)
                             {
 
                                 System.Console.WriteLine("{0}", Listas.DatosDeMateriaPorID(idMateria));
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                System.Console.WriteLine("\n\tMateria inexistente.");
+                                Console.ReadKey();
+                                Console.Clear();
+                                menuEliminar();
                             }
 
                             //Menu interactivo
@@ -495,7 +514,7 @@ namespace EDD
                             switch (opcionH)
                             {
                                 case 1:
-                                    Listas.EliminarMaterias(Listas.PosMateria(idMateria));
+                                    Listas.EliminarMaterias(Listas.PosMateria(idMateria), idMateria);
                                     Console.ForegroundColor = ConsoleColor.Green;
                                     System.Console.WriteLine("\n\tMateria eliminada.");
                                     Console.ForegroundColor = ConsoleColor.White;
@@ -584,15 +603,13 @@ namespace EDD
                     menuPrincipal();
                     break;
             }
-
-
         }
 
         /*public void menuImportar()
         {
             int opcion;
             int opcionH;
-            
+
             string ruta;
 
             //Menu interactivo
@@ -610,12 +627,12 @@ namespace EDD
             switch (opcion)
             {
                 case 1: //Ordenar alumnos
-                    MenuInteractivoOrdenamiento.MenuInteractivoOrd("ID","NOMBRE","APELLIDO PATERNO","APELLIDO MATERNO","DIA DE NACIMIENTO", "SEMESTRE");
+                    MenuInteractivoOrdenamiento.MenuInteractivoOrd("ID", "NOMBRE", "APELLIDO PATERNO", "APELLIDO MATERNO", "DIA DE NACIMIENTO", "SEMESTRE");
                     menuOrdenamiento();
                     break;
 
                 case 2: //Ordenar materias
-                    MenuInteractivoOrdenamiento.MenuInteractivoOrd("ID","MATERIA");
+                    MenuInteractivoOrdenamiento.MenuInteractivoOrd("ID", "MATERIA");
                     menuOrdenamiento();
                     break;
 
@@ -632,6 +649,4 @@ namespace EDD
             }
         }
     }
-
-
 }

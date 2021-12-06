@@ -312,11 +312,17 @@ namespace EDD
         }
 
 
+        string txtMPA = "MPA.txt";
+
         //Funciones para eliminar datos de las listas
         public void EliminarAlumnos(int iDalumnoE, string STRINGiDalumnoE)
         {
+            string idAsocMatPorAlumno;
+            string idAlumnoMatPorAlumno;
+            string idMateriaMatPorAlumno;
+            double calificacionMatPorAlumno;
+
             alumnos.RemoveAt(iDalumnoE);
-            ArrayList listaTemp = new ArrayList();
 
             //Eliminación cruzada
 
@@ -328,25 +334,53 @@ namespace EDD
 
                 if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno != STRINGiDalumnoE)
                 {
-                    listaTemp.Add(((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());
+                    idAsocMatPorAlumno = ((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc;
+                    idAlumnoMatPorAlumno = ((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno;
+                    idMateriaMatPorAlumno = ((MateriasPorAlumno)materiasPorAlumno[i]).IDMateria;
+                    calificacionMatPorAlumno = ((MateriasPorAlumno)materiasPorAlumno[i]).Calificacion;
+
+                    AgregarMateriasPorAlumno(new MateriasPorAlumno(idAsocMatPorAlumno, idAlumnoMatPorAlumno, idMateriaMatPorAlumno, calificacionMatPorAlumno));
+                    BaseDeDatosLocal.guardarLista(GetListaMateriasPorAlumno, txtMPA);
                 }
             }
 
-            materiasPorAlumno.Clear();
+            materiasPorAlumno.RemoveRange(0, count);
+            BaseDeDatosLocal.guardarLista(GetListaMateriasPorAlumno, txtMPA);
+        }
+        public void EliminarMaterias(int iDmateriaE, string STRINGiDmateriaE)
+        {
+            string idAsocMatPorAlumno;
+            string idAlumnoMatPorAlumno;
+            string idMateriaMatPorAlumno;
+            double calificacionMatPorAlumno;
 
-            for (int i = 0; i < listaTemp.Count; i++)
+            materias.RemoveAt(iDmateriaE);
+
+            //Eliminación cruzada
+
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
+
+            int count = materiasPorAlumno.Count;
+            for (int i = 0; i < count; i++)
             {
-                //Código para pasar de listaTemp[i] a materiasPorAlumno 
-                                            
+
+                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDMateria != STRINGiDmateriaE)
+                {
+                    idAsocMatPorAlumno = ((MateriasPorAlumno)materiasPorAlumno[i]).IDAsoc;
+                    idAlumnoMatPorAlumno = ((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno;
+                    idMateriaMatPorAlumno = ((MateriasPorAlumno)materiasPorAlumno[i]).IDMateria;
+                    calificacionMatPorAlumno = ((MateriasPorAlumno)materiasPorAlumno[i]).Calificacion;
+
+                    AgregarMateriasPorAlumno(new MateriasPorAlumno(idAsocMatPorAlumno, idAlumnoMatPorAlumno, idMateriaMatPorAlumno, calificacionMatPorAlumno));
+                    BaseDeDatosLocal.guardarLista(GetListaMateriasPorAlumno, txtMPA);
+                }
             }
 
-            /*for (int i = 0; i < listaTemp.Count; i++)
-            {
-                Console.WriteLine("//" + ((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());            
-            }*/
+            materiasPorAlumno.RemoveRange(0, count);
+            BaseDeDatosLocal.guardarLista(GetListaMateriasPorAlumno, txtMPA);
         }
-        public void EliminarMaterias(int materiaE) => materias.RemoveAt(materiaE);
         public void EliminarMateriasPorAlumno(int MPAE) => materiasPorAlumno.RemoveAt(MPAE);
+
 
         //Ordenamiento Ascendente - Descendente
         public static void Ordenamiento(string[,] list, int index, bool ascendente)
