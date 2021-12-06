@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace EDD
 {
-    class Alumno
+    public class Alumno
     {
         
         //Declaración de los Atributos
@@ -31,7 +31,7 @@ namespace EDD
 
         public string DatosAlumno()
         {
-            return string.Format("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}",iDAlumno,nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento,semestre);
+            return string.Format("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}{5,-20}",iDAlumno,nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento,semestre);
         }
 
         public string IDAlumno { get=> iDAlumno; set => iDAlumno = value; }

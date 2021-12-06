@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace EDD
 {
-    class Materias
+    public class Materias
     {
         //Declaración de los ArrayList
         private string iDMateria;

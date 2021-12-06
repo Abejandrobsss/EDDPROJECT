@@ -6,11 +6,11 @@ using System.Collections;
 
 namespace EDD
 {
-    class ListasDeDatos
+    public class ListasDeDatos
     {
         //Creacion de los ArrayLists para almacenar Objetos.
         private ArrayList alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
-        public ArrayList materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
+        private ArrayList materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
         private ArrayList materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
 
         //funciones para agregar datos a las listas.
@@ -22,7 +22,7 @@ namespace EDD
         public ArrayList GetListaMaterias { get => materias; }
         public ArrayList GetListaMateriasPorAlumno { get => materiasPorAlumno; }
 
-        public string[,] GetArrAlumnos(ArrayList alumno)
+        public static string[,] GetArrAlumnos(ArrayList alumno)
         {
             string[,] arreglo = new string[alumno.Count, 6];
 
@@ -30,33 +30,33 @@ namespace EDD
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-5}", ((Alumno)alumno[i]).AlumnoArr[j]) : string.Format("{0,-15}", ((Alumno)alumno[i]).AlumnoArr[j]);
+                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-20}", ((Alumno)alumno[i]).AlumnoArr[j]) : string.Format("{0,-20}", ((Alumno)alumno[i]).AlumnoArr[j]);
                 }
             }
             return arreglo;
         }
-        public string[,] GetArrMaterias(ArrayList materia)
+        public static string[,] GetArrMaterias(ArrayList materia)
         {
             string[,] arreglo = new string[materia.Count, 2];
 
             for (int i = 0; i < materia.Count; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 2; j++)
                 {
-                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-5}", ((Materias)materia[i]).MateriaArr[j]) : string.Format("{0,-15}", ((Materias)materia[i]).MateriaArr[j]);
+                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-20}", ((Materias)materia[i]).MateriaArr[j]) : string.Format("{0,-20}", ((Materias)materia[i]).MateriaArr[j]);
                 }
             }
             return arreglo;
         }
-        public string[,] GetArrMPA(ArrayList mPA)
+        public static string[,] GetArrMPA(ArrayList mPA)
         {
             string[,] arreglo = new string[mPA.Count, 4];
 
             for (int i = 0; i < mPA.Count; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 4; j++)
                 {
-                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-5}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]) : string.Format("{0,-15}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]);
+                    arreglo[i, j] = j == 0 ? string.Format("\t{0,-20}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]) : string.Format("{0,-20}", ((MateriasPorAlumno)mPA[i]).MPAArray[j]);
                 }
             }
             return arreglo;
@@ -362,7 +362,7 @@ namespace EDD
             Array.Sort(tempList);
             if (ascendente == false) Array.Reverse(tempList);
 
-            for (int i = 1; i < list.GetLength(0); i++)
+            for (int i = 1; i < list.GetLength(0)+1; i++)
             {
                 if (Int32.TryParse(list[0, index], out int resoult))
                 {
@@ -373,7 +373,6 @@ namespace EDD
                             for (int l = 0; l < list.GetLength(1); l++)
                             {
                                 ArrOrdenado[counter, l] = list[j, l];
-
                             }
                             counter = counter < list.GetLength(0) - 1 ? ++counter : counter;
                         }
