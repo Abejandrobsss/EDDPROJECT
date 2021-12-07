@@ -1,3 +1,7 @@
 3,Ismael,Gallardo,Arias,04/11/2002,5
 6,Alice,Ocampo,Galindo,04/12/2002,2
 4,Alejandro,Andaverde,Del Angel,15/06/2001,3
+5,Daniel,Andaverde,del Angel,2005,1
+7,Odalys,Guerrero,Ruiz,2002,3
+2,Jose,Aguilar,Hernandez,2002,3
+8,Ismael,Lopez,Garza,2000,5

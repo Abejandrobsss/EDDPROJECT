@@ -1,3 +1,7 @@
 2,Quimica
 1,Calculo
 3,Programacion
+6,Algebra
+4,Fisica
+8,Biologia
+5,Circuitos

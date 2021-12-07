@@ -162,6 +162,23 @@ namespace EDD
                 System.Console.WriteLine(((Alumno)alumnos[i]).DatosAlumno());
             }
         }
+
+        public void ImprimirAlumnos(int cantidad)
+        {
+            alumnos = BaseDeDatosLocal.recuperarLista("Alumnos.txt");
+            int count = cantidad;
+            for (int i = 0; i < count; i++)
+            {
+                if(count > alumnos.Count)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("\tNo hay tantas lineas");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                }
+                System.Console.WriteLine(((Alumno)alumnos[i]).DatosAlumno());
+            }
+        }
         //funcion para imprimir todas las materias.
         public void ImprimirMaterias()
         {
@@ -172,6 +189,23 @@ namespace EDD
                 System.Console.WriteLine(((Materias)materias[i]).DatosMaterias());
             }
         }
+
+        public void ImprimirMaterias(int cantidad)
+        {
+            materias = BaseDeDatosLocal.recuperarLista("Materias.txt");
+            int count = cantidad;
+            for (int i = 0; i < count; i++)
+            {
+                if(count > materias.Count)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("\tNo hay tantas lineas");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                }
+                System.Console.WriteLine(((Materias)materias[i]).DatosMaterias());
+            }
+        }
         //funcion para imprimir todas las materias por alumno.
         public void ImprimirMateriasPorAlumno()
         {
@@ -179,6 +213,22 @@ namespace EDD
             int count = materiasPorAlumno.Count;
             for (int i = 0; i < count; i++)
             {
+                System.Console.WriteLine(((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());
+            }
+        }
+        public void ImprimirMateriasPorAlumno(int cantidad)
+        {
+            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
+            int count = cantidad;
+            for (int i = 0; i < count; i++)
+            {
+                if(count > materiasPorAlumno.Count)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    System.Console.WriteLine("\tNo hay tantas lineas");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+                }
                 System.Console.WriteLine(((MateriasPorAlumno)materiasPorAlumno[i]).DatosMateriasPorAlumno());
             }
         }
@@ -382,37 +432,17 @@ namespace EDD
 
             for (int i = 1; i < list.GetLength(0)+1; i++)
             {
-                if (Int32.TryParse(list[0, index], out int resoult))
+                for (int j = 0; j < list.GetLength(0); j++)
                 {
-                    for (int j = 0; j < list.GetLength(0); j++)
+                    if (tempList[counter] == list[j, index] && ArrOrdenado[list.GetLength(0) - 1, list.GetLength(1) - 1] == null)
                     {
-                        if (tempList[counter] == list[j, index] && ArrOrdenado[list.GetLength(0) - 1, list.GetLength(1) - 1] == null)
+                        for (int l = 0; l < list.GetLength(1); l++)
                         {
-                            for (int l = 0; l < list.GetLength(1); l++)
-                            {
-                                ArrOrdenado[counter, l] = list[j, l];
-                            }
-                            counter = counter < list.GetLength(0) - 1 ? ++counter : counter;
+                            ArrOrdenado[counter, l] = list[j, l];
                         }
+                        counter = counter < list.GetLength(0) - 1 ? ++counter : counter;
                     }
                 }
-                else
-                {
-                    for (int j = 0; j < list.GetLength(0); j++)
-                    {
-                        if (tempList[counter] == list[j, index] && ArrOrdenado[list.GetLength(0) - 1, list.GetLength(1) - 1] == null)
-                        {
-                            for (int l = 0; l < list.GetLength(1); l++)
-                            {
-                                ArrOrdenado[counter, l] = list[j, l];
-
-                            }
-                            counter = counter < list.GetLength(0) - 1 ? ++counter : counter;
-                        }
-                    }
-
-                }
-
             }
             for (int i = 0; i < ArrOrdenado.GetLength(0); i++)
             {

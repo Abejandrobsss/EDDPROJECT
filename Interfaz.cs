@@ -242,16 +242,41 @@ namespace EDD
                             break;
 
                         case 3:
-                            Console.WriteLine("\n\t═════ BUSCAR > ALUMNO > TODOS ════════════════════════════════════════════════════════════════\n");
-                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
-
-                            Listas.ImprimirAlumnos();
-
-                            Console.Write("\n\tPresione cualquier tecla para continuar.");
-                            Console.ReadKey();
-
+                            opcion = MenuInteractivo.MenuInteractivoFlechas("BUSCAR > ALUMNO > TODOS", "» Imprimir Todos", "» Imprimir lineas","» Volver");
                             Console.Clear();
-                            menuBusqueda();
+                            switch (opcion)
+                            {
+                                case 1:
+                                    Console.WriteLine("\n\t═════ BUSCAR > ALUMNO > TODOS ════════════════════════════════════════════════════════════════\n");
+                                    System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
+
+                                    Listas.ImprimirAlumnos();
+
+                                    Console.Write("\n\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                                case 2:
+                                    Console.WriteLine("\n\t═════ BUSCAR > ALUMNO > TODOS ════════════════════════════════════════════════════════════════\n");
+                                    System.Console.Write("\tIngrese la cantidad de lineas: ");
+                                    int cantidad = Convert.ToInt32(Console.ReadLine());
+                                    System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}{4,20}{5,20}", "ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Dia de nacimiento", "Semestre");
+
+                                    Listas.ImprimirAlumnos(cantidad);
+
+                                    Console.Write("\n\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                                case 3:
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                            }
                             break;
 
                         case 4:
@@ -299,13 +324,41 @@ namespace EDD
                             break;
 
                         case 3:
-                            Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
-                            System.Console.WriteLine("\t{0,-20}{1,-20}", "ID", "Materia");
-                            Listas.ImprimirMaterias();
-                            Console.Write("\n\tPresione cualquier tecla para continuar.");
-                            Console.ReadKey();
+                            opcion = MenuInteractivo.MenuInteractivoFlechas("BUSCAR > MATERIA > TODOS", "» Imprimir Todos", "» Imprimir lineas","» Volver");
                             Console.Clear();
-                            menuBusqueda();
+                            switch (opcion)
+                            {
+                                case 1:
+                                    Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
+                                    System.Console.WriteLine("\t{0,-20}{1,-20}", "ID", "Materia");
+
+                                    Listas.ImprimirMaterias();
+
+                                    Console.Write("\n\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                                case 2:
+                                    Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
+                                    System.Console.Write("\tIngrese la cantidad de lineas: ");
+                                    int cantidad = Convert.ToInt32(Console.ReadLine());
+                                    System.Console.WriteLine("\t{0,-20}{1,-20}", "ID", "Materia");
+
+                                    Listas.ImprimirMaterias(cantidad);
+
+                                    Console.Write("\n\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                                case 3:
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                            }
                             break;
 
                         case 4:
@@ -352,13 +405,41 @@ namespace EDD
                             break;
 
                         case 3:
-                            Console.WriteLine("\n\t═════ BUSCAR > MATERIA > TODOS ════════════════════════════════════════════════════════════════\n");
-                            System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}", "ID Asociado", "ID del Alumno", "ID de la materia", "Calificacion");
-                            Listas.ImprimirMateriasPorAlumno();
-                            Console.Write("\n\tPresione cualquier tecla para continuar.");
-                            Console.ReadKey();
+                            opcion = MenuInteractivo.MenuInteractivoFlechas("BUSCAR > MATERIAS POR ALUMNO > TODOS", "» Imprimir Todos", "» Imprimir lineas","» Volver");
                             Console.Clear();
-                            menuBusqueda();
+                            switch (opcion)
+                            {
+                                case 1:
+                                    Console.WriteLine("\n\t═════ BUSCAR > MATERIAS POR ALUMNO > TODOS ════════════════════════════════════════════════════════════════\n");
+                                    System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}", "ID Asociado", "ID del Alumno", "ID de la materia", "Calificacion");
+
+                                    Listas.ImprimirMateriasPorAlumno();
+
+                                    Console.Write("\n\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                                case 2:
+                                    Console.WriteLine("\n\t═════ BUSCAR > MATERIAS POR ALUMNO > TODOS ════════════════════════════════════════════════════════════════\n");
+                                    System.Console.Write("\tIngrese la cantidad de lineas: ");
+                                    int cantidad = Convert.ToInt32(Console.ReadLine());
+                                    System.Console.WriteLine("\t{0,-20}{1,-20}{2,-20}{3,-20}", "ID Asociado", "ID del Alumno", "ID de la materia", "Calificacion");
+
+                                    Listas.ImprimirMateriasPorAlumno(cantidad);
+
+                                    Console.Write("\n\tPresione cualquier tecla para continuar.");
+                                    Console.ReadKey();
+
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                                case 3:
+                                    Console.Clear();
+                                    menuBusqueda();
+                                    break;
+                            }
                             break;
 
                         case 4:
