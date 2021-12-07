@@ -12,7 +12,7 @@ namespace EDD
         private string nombreMateria;
 
         string[] materiaArr;
-        //Constructor para crear un Alumno
+        //Constructor para crear una Materia
         public Materias(string iDMateria, string nombreMateria)
         {
             this.iDMateria = iDMateria;

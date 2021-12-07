@@ -18,7 +18,7 @@ namespace EDD
             int opcion;
 
             //Menu interactivo
-            opcion = MenuInteractivo.MenuInteractivoFlechas("MENÚ PRINCIPAL", "» Ingresar datos", "» Búsqueda", "» Eliminación", "» Ordenamiento", "» Importar datos (No implementado)", "» Salir");
+            opcion = MenuInteractivo.MenuInteractivoFlechas("MENÚ PRINCIPAL", "» Ingresar datos", "» Búsqueda", "» Eliminación", "» Ordenamiento", "» Salir");
             Console.Clear();
             switch (opcion)
             {
@@ -39,10 +39,6 @@ namespace EDD
                     break;
 
                 case 5:
-                    //menuImportar();
-                    break;
-
-                case 6:
                     Console.Clear();
                     Environment.Exit(0);
                     break;
@@ -112,7 +108,7 @@ namespace EDD
                     catch (System.Exception)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        System.Console.WriteLine("\n\tOcurrio un error, intentelo denuevo.");
+                        System.Console.WriteLine("\n\tOcurrio un error, intentelo de nuevo.");
                         Console.ForegroundColor = ConsoleColor.White;
                     }
 
@@ -396,9 +392,9 @@ namespace EDD
 
             int opcion;
             int opcionH;
-            //Parameros para la clase Alumno
+            //Parametros para la clase Alumno
             string idAlumno;
-            //Parameros para la clase Materias
+            //Parametros para la clase Materias
             string idMateria;
             //Parametros para la clase MateriasPorAlumno
             string idAsoc;
@@ -604,18 +600,6 @@ namespace EDD
                     break;
             }
         }
-
-        /*public void menuImportar()
-        {
-            int opcion;
-            int opcionH;
-
-            string ruta;
-
-            //Menu interactivo
-            opcion = MenuInteractivo.MenuInteractivoFlechas("IMPORTAR DATOS", "» Ingresar ruta", "» Volver");
-
-        }*/
 
         public void menuOrdenamiento()
         {

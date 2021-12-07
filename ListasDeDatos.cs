@@ -295,22 +295,6 @@ namespace EDD
             return posicion;
         }
 
-        //Funcion para Verificar si existe un IDAlumno en IDMateriaPorAlumno 
-        public bool BuscarIDAlumnoIDMateriaPorAlumno(string iD)
-        {
-            materiasPorAlumno = BaseDeDatosLocal.recuperarLista("MPA.txt");
-            int count = materiasPorAlumno.Count;
-            bool existe = false;
-            for (int i = 0; i < count; i++)
-            {
-                if (((MateriasPorAlumno)materiasPorAlumno[i]).IDAlumno == iD)
-                {
-                    existe = true;
-                }
-            }
-            return existe;
-        }
-
 
         string txtMPA = "MPA.txt";
 
