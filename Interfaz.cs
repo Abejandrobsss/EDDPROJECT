@@ -560,6 +560,14 @@ namespace EDD
                             {
                                 System.Console.WriteLine("{0}", Listas.DatosMateriasPorAlumno(idAsoc));
                             }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                System.Console.WriteLine("\n\tMateria por alumno inexistente.");
+                                Console.ReadKey();
+                                Console.Clear();
+                                menuEliminar();
+                            }
 
                             //Menu interactivo
                             opcionH = MenuInteractivoHorizontal.MenuInteractivoFlechasH("» Confirmar acción", "» Volver");

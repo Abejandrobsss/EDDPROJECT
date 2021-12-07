@@ -1,1 +1,3 @@
 2,Quimica
+1,Calculo
+3,Programacion
